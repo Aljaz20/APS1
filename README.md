@@ -16,14 +16,14 @@ Prevajanje in poganjanje programov:
 ----------
 Prevajanje:
 ```shell
-g++ -std=c++20 -o {ime1} {Ime programa}
+g++ -std=c++20 {Ime programa}
 ```
 Poganjanje:
 ```shell
-./{ime1} < {Vhod01.txt} > {Izhod01.txt}
+./a.out < {Vhod01.txt} > {Izhod01.txt}
 ```
 Torej program `Resitev.cpp` se prevede in požene (izhod se zapiše v datoteko `Izhod01.txt`) tako:
 ```shell
-g++ -std=c++20 -o a.out Osvetlitev.cpp
+g++ -std=c++20 Osvetlitev.cpp
 ./a.out < Vhod01.txt > Izhod01.txt
 ```

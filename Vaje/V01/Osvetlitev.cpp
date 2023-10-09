@@ -4,11 +4,10 @@ using namespace std;
 int main(){
     int M, N;
     cin >> M >> N;
-    int osvetlitev[M];
+    bool *osvetlitev;
+    osvetlitev = (bool*)calloc(M,sizeof(bool));
     int stevec = 0;
-    for(int i = 0; i < M; i++){
-        osvetlitev[i] = 0;
-    }
+    
     for(int i = 0; i < N; i++){
         int x, d, j;
         cin >> x >> d;
@@ -21,11 +20,11 @@ int main(){
             j = x-d;
         }
         for(j; j < x+d && j < M; j++){
-            if(osvetlitev[j] == 1){
+            if(osvetlitev[j] == true){
                 continue;
             }else{
                 stevec++;
-                osvetlitev[j] = 1;
+                osvetlitev[j] = true;
             }
         }
     }
