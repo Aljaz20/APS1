@@ -12,7 +12,19 @@ Seznam rešenih domačih nalog:
 ----------
 - DN01 -> DN01
 
-Prevajanje in poganjanje programov:
+Testiranje:
+---------
+S programom `Marjan.sh` lahko testirate svoj program s testnimi primeri.
+```shell
+./Marjan.sh {ime_vasega_programa_brez_koncnice} {st_testov_ki_so_na_voljo} {imate test.out file? NE - 0, DA - 1}
+```
+
+Torej za program `Resitev.cpp`, z 50 testnimi primeri in z rešitvami (testXX.out file) se požene tako:
+```shell
+./Marjan.sh Resitev 50 1
+```
+
+Prevajanje in poganjanje posameznih programov:
 ----------
 Prevajanje:
 ```shell
@@ -20,10 +32,10 @@ g++ -std=c++20 {Ime programa}
 ```
 Poganjanje:
 ```shell
-./a.out < {Vhod01.txt} > {Izhod01.txt}
+./a.out < {test01.in} > {test01.res}
 ```
-Torej program `Resitev.cpp` se prevede in požene (izhod se zapiše v datoteko `Izhod01.txt`) tako:
+Torej program `Resitev.cpp` se prevede in požene (izhod se zapiše v datoteko `test01.res`) tako:
 ```shell
 g++ -std=c++20 Osvetlitev.cpp
-./a.out < Vhod01.txt > Izhod01.txt
+./a.out < test01.in > test01.res
 ```
