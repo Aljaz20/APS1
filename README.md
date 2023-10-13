@@ -6,11 +6,11 @@ Delo pri predmetu Algoritmi in podatkovne strukture 1 (C++) UNI, Fakulteta za ra
 
 Seznam rešenih vaj:
 ----------
-- 
+- V01 -> V01
 
 Seznam rešenih domačih nalog:
 ----------
-- DN01 -> DN01
+-
 
 Testiranje:
 ---------
