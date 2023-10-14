@@ -6,13 +6,13 @@ Delo pri predmetu Algoritmi in podatkovne strukture 1 (C++) UNI, Fakulteta za ra
 
 Seznam rešenih vaj:
 ----------
-- V01 -> V01
+- V01 -> V02
 
 Seznam rešenih domačih nalog:
 ----------
 -
 
-Testiranje:
+Testiranje s programom `Marjan.sh` (Current version == 1.1):
 ---------
 S programom `Marjan.sh` lahko testirate svoj program s testnimi primeri.
 ```shell
