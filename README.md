@@ -2,7 +2,7 @@
 
 Delo pri predmetu Algoritmi in podatkovne strukture 1 (C++) UNI, Fakulteta za računalništvo in informatiko, Univerza v Ljubljani, 2022/23:
 
-- `Marjan.sh` - program za avtomatsko testiranje,
+- `Marjan.sh` - bash program za avtomatsko testiranje napisanih C++ programov,
 - vaje s lastnimi testnimi primeri.
 
 Seznam rešenih vaj:
