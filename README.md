@@ -2,15 +2,12 @@
 
 Delo pri predmetu Algoritmi in podatkovne strukture 1 (C++) UNI, Fakulteta za računalništvo in informatiko, Univerza v Ljubljani, 2022/23:
 
-- vaje in domače naloge s lastnimi testnimi primeri.
+- `Marjan.sh` - program za avtomatsko testiranje,
+- vaje s lastnimi testnimi primeri.
 
 Seznam rešenih vaj:
 ----------
 - V01 -> V02
-
-Seznam rešenih domačih nalog:
-----------
--
 
 Testiranje s programom `Marjan.sh` (Current version == 1.1):
 ---------
