@@ -1,4 +1,6 @@
 #####################################
+VERSION=1.0
+#####################################
 
 #./Marjan.sh {ime_datoteke} {št. testov} {0/1}
 # Če imaš rešitve ("test.out") potem je 1, drugače je 0
@@ -6,6 +8,18 @@
 #####################################
 
 #!/bin/bash
+
+# Definicija ANSI escape sekvenc za barvanje teksta
+green='\e[1;92m'
+red='\e[1;91m'
+blue='\e[1;94m'
+yellow_bold='\e[1;93m'
+reset='\e[0m'
+white='\e[1;97m'
+
+echo -e "${yellow_bold}---------------------------------------------"
+echo "		VERSION == ${VERSION}"
+echo -e "---------------------------------------------${reset}"
 
 # Preveri, če sta podana dva argumenta (ime programa in število testov)
 if [ "$#" -ne 3 ]; then
@@ -17,11 +31,6 @@ fi
 program="$1"
 test_count="$2"
 out_resitve="$3"
-
-# Definicija ANSI escape sekvenc za barvanje teksta
-green='\033[0;32m'
-red='\033[0;31m'
-reset='\033[0m'
 
 g++ "${program}.cpp" -o ${program} -std=c++20 -pedantic -Wall
 
