@@ -9,16 +9,16 @@ Seznam rešenih vaj:
 ----------
 - V01 -> V02
 
-Testiranje s programom `Marjan.sh` (Current version == 1.1):
+Testiranje s programom `Marjan.sh` (Current version == 1.2):
 ---------
 S programom `Marjan.sh` lahko testirate svoj program s testnimi primeri.
 ```shell
-./Marjan.sh {ime_vasega_programa_brez_koncnice} {st_testov_ki_so_na_voljo} {imate test.out file? NE - 0, DA - 1}
+./Marjan.sh {ime_vasega_programa_brez_koncnice} {st_testov_ki_so_na_voljo}
 ```
 
-Torej za program `Resitev.cpp`, z 50 testnimi primeri in z rešitvami (testXX.out file) se požene tako:
+Torej za program `Resitev.cpp`, z 50 testnimi primeri se požene tako:
 ```shell
-./Marjan.sh Resitev 50 1
+./Marjan.sh Resitev 50
 ```
 
 Prevajanje in poganjanje posameznih programov:
