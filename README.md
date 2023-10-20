@@ -11,7 +11,7 @@ Seznam rešenih vaj:
 
 Testiranje s programom `Marjan.sh` (Current version == 1.3):
 ---------
-Program `Marjan.sh` omogoča samodejno testiranje vašega programa s testnimi primeri.\n
+Program `Marjan.sh` omogoča samodejno testiranje vašega programa s testnimi primeri.
 ### Splošna navodila za uporabo:
 ```shell
 ./Marjan.sh {ime_vasega_programa_brez_koncnice} {dodatni_parametri}
@@ -30,11 +30,11 @@ Program `Marjan.sh` omogoča samodejno testiranje vašega programa s testnimi pr
 
 Prevajanje in poganjanje posameznih programov:
 ----------
-Prevajanje:
+### Prevajanje:
 ```shell
 g++ -std=c++20 {Ime programa}
 ```
-Poganjanje:
+### Poganjanje:
 ```shell
 ./a.out < {test01.in} > {test01.res}
 ```
