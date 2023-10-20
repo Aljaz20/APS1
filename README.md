@@ -9,16 +9,21 @@ Seznam rešenih vaj:
 ----------
 - V01 -> V02
 
-Testiranje s programom `Marjan.sh` (Current version == 1.2):
+Testiranje s programom `Marjan.sh` (Current version == 1.3):
 ---------
 S programom `Marjan.sh` lahko testirate svoj program s testnimi primeri.
 ```shell
-./Marjan.sh {ime_vasega_programa_brez_koncnice} {st_testov_ki_so_na_voljo}
+./Marjan.sh {ime_vasega_programa_brez_koncnice} {dodatni_parametri}
 ```
 
-Torej za program `Resitev.cpp`, z 50 testnimi primeri se požene tako:
+Torej program `Resitev.cpp` se testira tako (s privzetimi nastavitvami - Timeout = 2.0 sekundi, Measure_time = 0):
 ```shell
-./Marjan.sh Resitev 50
+./Marjan.sh Resitev
+```
+
+Če pa želite izpisati čase posameznih testov (M=1) ali pa spremeniti timelimit (T=1.0) pa naredite to tako:
+```shell
+./Marjan.sh Resitev T=1.0 M=1
 ```
 
 Prevajanje in poganjanje posameznih programov:

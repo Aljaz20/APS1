@@ -2,8 +2,7 @@
 			VERSION=1.2
 #####################################
 
-#./Marjan.sh {ime_datoteke} {št. testov} {0/1}
-# Če imaš rešitve ("test.out") potem je 1, drugače je 0
+#./Marjan.sh {ime_datoteke} {št. testov}
 
 #####################################
 
