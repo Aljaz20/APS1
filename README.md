@@ -14,11 +14,11 @@ Testiranje s programom `Marjan.sh` (Current version == 1.3):
 Program `Marjan.sh` omogoča samodejno testiranje vašega programa s testnimi primeri.
 ### Splošna navodila za uporabo:
 ```shell
-./Marjan.sh {ime_vasega_programa_brez_koncnice} {dodatni_parametri}
+./Marjan.sh {ime_vasega_programa_brez_koncnice} {dodatni_parametri v poljubnem vrstnem redu}
 ```
 
 ### Primeri uporabe:
-- Torej program `Resitev.cpp` se testira tako (s privzetimi nastavitvami - Timeout = 2.0 s, Measure_time = 0):
+- Torej program `Resitev.cpp` se testira tako (s privzetimi nastavitvami - Timelimit = 2.0 s, Measure_time = 0):
 ```shell
 ./Marjan.sh Resitev
 ```
