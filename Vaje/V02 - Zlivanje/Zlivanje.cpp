@@ -3,9 +3,10 @@
 #include <algorithm>
 using namespace std;
 
-// Najprej preberemo vsa vhodna števila in jih zapišemo v array, medtem pa tudi prestejemo koliko čet je in zapišemo meje med četami.
-// Nato naredimo K arrayev in jih zlijemo v enega z uporabo funkcije "zlij".Nato ta novi array vstavimo nazaj v prvotnega. To ponovimo za vse čete.
-// Če je array urejen, prenehamo. Če je A = 0, prenehamo. Če ni urejen in je A > 0, A-- in na novo določimo meje med četami in ponovimo postopek.
+// Najprej preberemo vsa vhodna števila in jih zapišemo v 2D array, kjer je vsaka četa v svoji "vrstici".
+// Nato naredimo K arrayev in jih zlijemo v enega z uporabo funkcije "zlij".Nato ta novi array vstavimo nazaj v prvotnega (v array1, ki se potem prepiše v array).
+// To ponovimo za vse čete. Če je array urejen (dolžina 1), prenehamo. Če je A = 0, prenehamo.
+// Če ni urejen in je A > 0, A-- in na novo določimo meje med četami in ponovimo postopek.
 
 vector<int> zlij(vector<vector<int>> novi, int sum, vector<int> poz1){
     vector<int> novi_array;
