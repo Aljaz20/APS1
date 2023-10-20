@@ -37,72 +37,50 @@ vector<int> zlij(vector<vector<int>> novi, int sum, vector<int> poz1){
 int main(){
     int N, K, A;
     cin >> N >> K >> A;
-    vector<int> array;
-    vector<int> cete;
+    vector<vector<int>> array;
+    int cete = 0;
+    int prejsno = 0;
+    array.push_back(vector<int>());
     for(int i = 0; i < N; i++){
         int stevilo;
         cin >> stevilo;
-        if(i == 0 || stevilo < array[i-1]){
-           cete.push_back(i);
+        if (stevilo < prejsno){
+            cete++;
+            array.push_back(vector<int>());
         }
-        array.push_back(stevilo);
+        array[cete].push_back(stevilo);
+        prejsno = stevilo;
     }
 
-    while((int)cete.size() > 1 && is_sorted(array.begin(), array.end()) == false && A > 0){
-        for(int i = 0; i < (int)cete.size(); i += K){
+    while((int)array.size() > 1 && A > 0){
+        vector<vector<int>> array2;
+        for (int i = 0; i < (int)array.size(); i+= K){
             int l = K;
-            if(i + K > (int)cete.size()){
-                l = cete.size() - i;
+            if(i + K > (int)array.size()){
+                l = array.size() - i;
             }
-            if ((l + i == (int)cete.size() && is_sorted(array.begin() + cete[i], array.end()) == true) || (l + i != (int)cete.size() && is_sorted(array.begin() + cete[i], array.begin() + cete[i+l]) == true)){
-                continue;
-            }
-            vector<vector<int>> novi(l);
+            vector<vector<int>> novi;
             vector<int> pozicije;
             int sum = 0;
-            
             for(int j = 0; j < l; j++){
-                if (i+j == (int) cete.size() - 1){
-                    for(int k = cete[i+j]; k < N; k++){
-                        novi[j].push_back(array[k]);
-                    }
-                    pozicije.push_back(N - cete[i+j]);
-                    sum += N - cete[i+j];
-                }else{
-                    for(int k = cete[i+j]; k < cete[i+j+1]; k++){
-                        novi[j].push_back(array[k]);
-                    }
-                    pozicije.push_back(cete[i+j+1] - cete[i+j]);
-                    sum += cete[i+j+1] - cete[i+j];
-                }
-                
+                novi.push_back(array[i+j]);
+                pozicije.push_back((int)array[i+j].size());
+                sum += (int)array[i+j].size();
             }
 
             vector<int> novi_array;
             novi_array = zlij(novi, sum, pozicije);
-            
-            if (l + i == (int)cete.size()){
-                array.erase(array.begin() + cete[i], array.end());
-            }else{
-                array.erase(array.begin() + cete[i], array.begin() + cete[i+l]);
-            }
-            for(int j = novi_array.size() -1 ; j >= 0; j--){
-                array.insert(array.begin() + cete[i], novi_array[j]);
-            }
+            array2.push_back(novi_array);
 
         }
-        vector <int> cete2;
-        for (int i = 0; i < (int)cete.size(); i++){
-            if (i % K == 0){
-                cete2.push_back(cete[i]);
-            }
-        }
-        cete = cete2;
+        array = array2;
         A--;
     }
 
     for(int i = 0; i < (int)array.size(); i++){
-        cout << array[i] << endl;
+        for(int j = 0; j < (int)array[i].size(); j++){
+            cout << array[i][j] << endl;
+        }
     }
     
     return 0;

@@ -1,5 +1,5 @@
 #####################################
-			VERSION=1.3
+			VERSION=1.4
 #####################################
 
 #./Marjan.sh {ime_datoteke} {dodatni_parametri}
@@ -77,93 +77,105 @@ done_tests=0
 # Vsi testi
 test_count=0
 
-# Zanka za izvajanje testov
-for input_file in test*.in;
-do
-  # Pridobi številko testa iz imena datoteke (npr. "test01.in" -> "01")
-  input_number=$(echo "$input_file" | sed 's/test\([0-9]\{2\}\)\.in/\1/')
-  
-  output_file_rez="test$input_number.out"
-  output_file_temp="test$input_number.res"
-  output_file_diff="test$input_number.diff"
-  res=0
-  rezultat=0
-  
-  if [ -f $output_file_temp ]; then
-    rm $output_file_temp
-  fi
-  if [ -f $output_file_diff ]; then
-    rm $output_file_diff
-  fi
-  
-  # Shranite trenutni čas
-  start_time=$(date +%s.%N)
-  
-  # Uporaba timeout za omejitev časovnega limita na 2 sekundi
-  timeout $to ./$program < $input_file > $output_file_temp
-  rezultat=$?
-  
-  # Shranite trenutni čas
-  end_time=$(date +%s.%N)
-  elapsed_time=$(echo "scale=3; (${end_time} - ${start_time}) / 1.0" | bc);
-  total_time=$(echo "$total_time + $elapsed_time" | bc)
-  
-  if (( $(echo "$elapsed_time < 1" | bc -l) )); then
-    elapsed_time="0$elapsed_time"
-  fi
-  
-  measuredTimeString="";
-  if [[ ${M_time} = 1 ]]; then
-	measuredTimeString=" [$elapsed_time s]"
-  fi
-
-  # Preveri, ali je program presegel časovni limit
-  if [ $rezultat -eq 124 ]; then
-    echo -e "Test $input_number: ${purple}Timeout${reset}${measuredTimeString}"
-  else
-	if [ -f $output_file_rez ]; then
-		# Primerjaj izhod programa s pričakovanim izhodom
-		cmp -s $output_file_temp $output_file_rez
-      if [ $rezultat -eq 0 ]; then
-        correct_tests=$((correct_tests + 1))
-        echo -e "Test $input_number: ${green}PASSED${reset}${measuredTimeString}"
-      else
-        echo -e "Test $input_number: ${red}FAILED${reset}${measuredTimeString}"
-      fi
-    else
-       echo -e "Test $input_number: ${blue}DONE${reset}${measuredTimeString}"
-       done_tests=$((done_tests + 1))
-       res=1
+# funkcija ob koncu izvajanja
+izpisi_rezultate() {
+	# Izpiši število pravilnih testov na koncu
+	echo -e "${white}---------------"
+	if [ $((test_count -  done_tests)) -ne 0 ]; then
+	  echo "Rezultat: $correct_tests/$((test_count - done_tests))"
 	fi
-  fi
-  
-  test_count=$((test_count + 1))
-  
-  # Počisti začasno izhodno datoteko, če imamo rešitev
-  if [ $res -eq 0 ]; then
-  	rm $output_file_temp
-  fi
-done
+	if [ $done_tests -ne 0 ]; then
+	  echo "Ostali opravljeni testi : $done_tests"
+	fi
 
-# Izpiši število pravilnih testov na koncu
-echo -e "${white}---------------"
-if [ $((test_count -  done_tests)) -ne 0 ]; then
-  echo "Rezultat: $correct_tests/$((test_count - done_tests))"
-fi
-if [ $done_tests -ne 0 ]; then
-  echo "Ostali opravljeni testi : $done_tests"
-fi
+	if [[ ${M_time} = 1 ]]; then
+	  echo ""
+	  averagetime=$(echo "scale=3; (${total_time} / ${test_count})" | bc);
+	  if (( $(echo "$averagetime < 1" | bc -l) )); then
+		averagetime="0$averagetime"
+	  fi
+	  averagetime="$averagetime s"
+	  echo "Average time = ${averagetime}"
+	fi
 
-if [[ ${M_time} = 1 ]]; then
-  echo ""
-  averagetime=$(echo "scale=3; (${total_time} / ${test_count})" | bc);
-  if (( $(echo "$averagetime < 1" | bc -l) )); then
-    averagetime="0$averagetime"
-  fi
-  averagetime="$averagetime s"
-  echo "Average time = ${averagetime}"
-fi
+	echo -e ${reset}
 
-echo -e ${reset}
+	rm "${program}"
+	exit 1
+}
 
-rm "${program}"
+# Prekinitev programa
+trap izpisi_rezultate SIGINT
+
+# Testiranje
+testing() {
+	for input_file in test*.in;
+	do
+	  # Pridobi številko testa iz imena datoteke (npr. "test01.in" -> "01")
+	  input_number=$(echo "$input_file" | sed 's/test\([0-9]\{2\}\)\.in/\1/')
+	  
+	  output_file_rez="test$input_number.out"
+	  output_file_temp="test$input_number.res"
+	  output_file_diff="test$input_number.diff"
+	  res=0
+	  rezultat=0
+	  
+	  if [ -f $output_file_temp ]; then
+		rm $output_file_temp
+	  fi
+	  if [ -f $output_file_diff ]; then
+		rm $output_file_diff
+	  fi
+	  
+	  # Shranite trenutni čas
+	  start_time=$(date +%s.%N)
+	  
+	  # Uporaba timeout za omejitev časovnega limita na 2 sekundi
+	  timeout $to ./$program < $input_file > $output_file_temp 2> /dev/null
+	  rezultat=$?
+	  
+	  # Shranite trenutni čas
+	  end_time=$(date +%s.%N)
+	  elapsed_time=$(echo "scale=3; (${end_time} - ${start_time}) / 1.0" | bc)
+	  total_time=$(echo "$total_time + $elapsed_time" | bc)
+	  
+	  if (( $(echo "$elapsed_time < 1" | bc -l) )); then
+		elapsed_time="0$elapsed_time"
+	  fi
+	  
+	  measuredTimeString="";
+	  if [[ ${M_time} = 1 ]]; then
+		measuredTimeString=" [$elapsed_time s]"
+	  fi
+
+	  # Preveri, ali je program presegel časovni limit
+	  if [ $rezultat -eq 124 ]; then
+		echo -e "Test $input_number: ${purple}Timeout${reset}${measuredTimeString}"
+	  else
+		if [ -f $output_file_rez ]; then
+			# Primerjaj izhod programa s pričakovanim izhodom
+			cmp -s $output_file_temp $output_file_rez
+		  if [ $rezultat -eq 0 ]; then
+		    correct_tests=$((correct_tests + 1))
+		    echo -e "Test $input_number: ${green}PASSED${reset}${measuredTimeString}"
+		  else
+		    echo -e "Test $input_number: ${red}FAILED${reset}${measuredTimeString}"
+		  fi
+		else
+		   echo -e "Test $input_number: ${blue}DONE${reset}${measuredTimeString}"
+		   done_tests=$((done_tests + 1))
+		   res=1
+		fi
+	  fi
+	  
+	  test_count=$((test_count + 1))
+	  
+	  # Počisti začasno izhodno datoteko, če imamo rešitev
+	  if [ $res -eq 0 ]; then
+	  	rm $output_file_temp
+	  fi
+	done
+}
+
+testing
+izpisi_rezultate

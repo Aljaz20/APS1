@@ -9,7 +9,7 @@ Seznam rešenih vaj:
 ----------
 - V01 -> V02
 
-Testiranje s programom `Marjan.sh` (Current version == 1.3):
+Testiranje s programom `Marjan.sh` (Current version == 1.4):
 ---------
 Program `Marjan.sh` omogoča samodejno testiranje vašega programa s testnimi primeri.
 ### Splošna navodila za uporabo:
@@ -36,10 +36,10 @@ g++ -std=c++20 {Ime programa}
 ```
 ### Poganjanje:
 ```shell
-./a.out < {test01.in} > {test01.res}
+./a.out < {test01.in}
 ```
-Torej program `Resitev.cpp` se prevede in požene (izhod se zapiše v datoteko `test01.res`) tako:
+Torej program `Resitev.cpp` se prevede in požene (izhod se zapiše v terminal) tako:
 ```shell
 g++ -std=c++20 Osvetlitev.cpp
-./a.out < test01.in > test01.res
+./a.out < test01.in
 ```
