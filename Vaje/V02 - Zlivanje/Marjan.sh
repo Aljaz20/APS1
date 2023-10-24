@@ -1,5 +1,5 @@
 #####################################
-			VERSION=1.4.1
+			VERSION=1.4.2
 #####################################
 
 #./Marjan.sh {ime_datoteke} {dodatni_parametri}
@@ -117,7 +117,6 @@ testing() {
 	  output_file_rez="test$input_number.out"
 	  output_file_temp="test$input_number.res"
 	  output_file_diff="test$input_number.diff"
-	  res=0
 	  rezultat=0
 	  
 	  if [ -f $output_file_temp ]; then
@@ -155,7 +154,8 @@ testing() {
 		if [ -f $output_file_rez ]; then
 			# Primerjaj izhod programa s pričakovanim izhodom
 			diff -w $output_file_temp $output_file_rez > $output_file_diff
-		    if [ $? -eq 0 ]; then
+			rezultat=$?
+		    if [ $rezultat -eq 0 ]; then
 			  correct_tests=$((correct_tests + 1))
 			  echo -e "Test $input_number: ${green}PASSED${reset}${measuredTimeString}"
 		    else
@@ -164,15 +164,16 @@ testing() {
 		else
 		   echo -e "Test $input_number: ${blue}DONE${reset}${measuredTimeString}"
 		   done_tests=$((done_tests + 1))
-		   res=1
+		   rezultat=-1
 		fi
 	  fi
 	  
 	  test_count=$((test_count + 1))
 	  
 	  # Počisti začasno izhodno datoteko, če imamo rešitev
-	  if [ $res -eq 0 ]; then
+	  if [ $rezultat -eq 0 ]; then
 	  	rm $output_file_temp
+	  	rm $output_file_diff
 	  fi
 	done
 }

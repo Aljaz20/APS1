@@ -73,7 +73,7 @@ int main(){
 
     for(int i = 0; i <= cete; i++){
         for(int j = 0; j < (int)array[i].size(); j++){
-            cout << array[i][j] << endl;
+            cout << array[i][j] << "\n";
         }
     }
     

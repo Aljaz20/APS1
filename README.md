@@ -9,7 +9,7 @@ Seznam rešenih vaj:
 ----------
 - V01 -> V02
 
-Testiranje s programom `Marjan.sh` (Current version == 1.4):
+Testiranje s programom `Marjan.sh` (Current version == 1.4.3):
 ---------
 Program `Marjan.sh` omogoča samodejno testiranje vašega programa s testnimi primeri.
 ### Splošna navodila za uporabo:
