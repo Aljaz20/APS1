@@ -1,5 +1,5 @@
 #####################################
-			VERSION=1.4
+			VERSION=1.4.1
 #####################################
 
 #./Marjan.sh {ime_datoteke} {dodatni_parametri}
@@ -154,13 +154,13 @@ testing() {
 	  else
 		if [ -f $output_file_rez ]; then
 			# Primerjaj izhod programa s pričakovanim izhodom
-			cmp -s $output_file_temp $output_file_rez
-		  if [ $rezultat -eq 0 ]; then
-		    correct_tests=$((correct_tests + 1))
-		    echo -e "Test $input_number: ${green}PASSED${reset}${measuredTimeString}"
-		  else
-		    echo -e "Test $input_number: ${red}FAILED${reset}${measuredTimeString}"
-		  fi
+			diff -w $output_file_temp $output_file_rez > $output_file_diff
+		    if [ $? -eq 0 ]; then
+			  correct_tests=$((correct_tests + 1))
+			  echo -e "Test $input_number: ${green}PASSED${reset}${measuredTimeString}"
+		    else
+			  echo -e "Test $input_number: ${red}FAILED${reset}${measuredTimeString}"
+		    fi
 		else
 		   echo -e "Test $input_number: ${blue}DONE${reset}${measuredTimeString}"
 		   done_tests=$((done_tests + 1))

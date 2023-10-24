@@ -25,44 +25,44 @@ int main(){
         array[cete].push_back(stevilo);
         prejsno = stevilo;
     }
-
-    int ind = (int)array.size() - 1;
-
-    while(ind > 0 && A > 0){
+    vector<int> pozicije2(K);
+    
+    while(cete > 0 && A > 0){
         vector<vector<int>> array2;
-        vector<int> pozicije1;
-        vector<int> pozicije2;
-        int size = ind + 1;
+        
+        int size = cete + 1;
         
         for (int i = 0; i < size; i+= K){
-            array2.push_back(vector<int>());
-            ind = i % K;
+            
+            cete = i / K;
             int l = K;
             if(i + K > size){
                 l = size - i;
             }
+            
             int sum = 0;
             for(int j = 0; j < l; j++){
                 int a = (int)array[i+j].size();
                 sum += a;
-                pozicije2.push_back(a);
-                pozicije1.push_back(0);
+                pozicije2[j] = a;
             }
+            array2.push_back(vector<int>(sum));
+            
 
             while(sum > 0){
-                long min = 10000000000;
+                int max = 0;
                 int index = 0;
-                for(int k = i; k < i+l; k++){
-                    if(pozicije1[k] == pozicije2[k]){
+                for(int k = 0; k < l; k++){
+                    if(0 == pozicije2[k]){
                         continue;
                     }
-                    if(array[k][pozicije1[k]] < min){
-                        min = array[k][pozicije1[k]];
+                    if(array[k+i][pozicije2[k]-1] > max){
+                        max = array[k+i][pozicije2[k]-1];
                         index = k;
                     }
                 }
-                pozicije1[index]++;
-                array2[ind].push_back(min);
+                pozicije2[index]--;
+                array2[cete][sum-1] = max;
                 
                 sum--;
             }
@@ -71,7 +71,7 @@ int main(){
         A--;
     }
 
-    for(int i = 0; i < (int)array.size(); i++){
+    for(int i = 0; i <= cete; i++){
         for(int j = 0; j < (int)array[i].size(); j++){
             cout << array[i][j] << endl;
         }
