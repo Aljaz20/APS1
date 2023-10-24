@@ -8,33 +8,6 @@ using namespace std;
 // To ponovimo za vse čete. Če je array urejen (dolžina 1), prenehamo. Če je A = 0, prenehamo.
 // Če ni urejen in je A > 0, A-- in na novo določimo meje med četami in ponovimo postopek.
 
-vector<int> zlij(vector<vector<int>> novi, int sum, vector<int> poz1){
-    vector<int> novi_array;
-    vector<int> pozicije;
-    for (int i = 0; i < (int)poz1.size(); i++){
-        pozicije.push_back(0);
-    }
-
-    while(sum > 0){
-        long min = 10000000000;
-        int index = 0;
-        for(int i = 0; i < (int)pozicije.size(); i++){
-            if(pozicije[i] == poz1[i]){
-                continue;
-            }
-            if(novi[i][pozicije[i]] < min){
-                min = novi[i][pozicije[i]];
-                index = i;
-            }
-        }
-        pozicije[index]++;
-        novi_array.push_back(min);
-        
-        sum--;
-    }
-    return novi_array;
-}
-
 int main(){
     int N, K, A;
     cin >> N >> K >> A;
@@ -53,26 +26,46 @@ int main(){
         prejsno = stevilo;
     }
 
-    while((int)array.size() > 1 && A > 0){
+    int ind = (int)array.size() - 1;
+
+    while(ind > 0 && A > 0){
         vector<vector<int>> array2;
-        for (int i = 0; i < (int)array.size(); i+= K){
+        vector<int> pozicije1;
+        vector<int> pozicije2;
+        int size = ind + 1;
+        
+        for (int i = 0; i < size; i+= K){
+            array2.push_back(vector<int>());
+            ind = i % K;
             int l = K;
-            if(i + K > (int)array.size()){
-                l = array.size() - i;
+            if(i + K > size){
+                l = size - i;
             }
-            vector<vector<int>> novi;
-            vector<int> pozicije;
             int sum = 0;
             for(int j = 0; j < l; j++){
-                novi.push_back(array[i+j]);
-                pozicije.push_back((int)array[i+j].size());
-                sum += (int)array[i+j].size();
+                int a = (int)array[i+j].size();
+                sum += a;
+                pozicije2.push_back(a);
+                pozicije1.push_back(0);
             }
 
-            vector<int> novi_array;
-            novi_array = zlij(novi, sum, pozicije);
-            array2.push_back(novi_array);
-
+            while(sum > 0){
+                long min = 10000000000;
+                int index = 0;
+                for(int k = i; k < i+l; k++){
+                    if(pozicije1[k] == pozicije2[k]){
+                        continue;
+                    }
+                    if(array[k][pozicije1[k]] < min){
+                        min = array[k][pozicije1[k]];
+                        index = k;
+                    }
+                }
+                pozicije1[index]++;
+                array2[ind].push_back(min);
+                
+                sum--;
+            }
         }
         array = array2;
         A--;
