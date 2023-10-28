@@ -22,10 +22,10 @@ Program `Marjan.sh` omogoča samodejno testiranje vašega programa s testnimi pr
 ```shell
 ./Marjan.sh Resitev
 ```
-Možni dodatni parametri:
-- Timelimit (T=?),
-- Measure time (M=0/1; 0: no, 1: yes),
-- Range of tests (R=?; 1-, 2-5, -5).
+- Možni dodatni parametri:
+    - Timelimit (T=?),
+    - Measure time (M=0/1; 0: no, 1: yes),
+    - Range of tests (R=?; 1-, 2-5, -5).
 
 - Če pa želite uporabiti dodatne parametre pa to lahko naredite na takšne način:
 ```shell
