@@ -1,5 +1,5 @@
 #####################################
-			VERSION=1.4.2
+			VERSION=1.5
 #####################################
 
 #./Marjan.sh {ime_datoteke} {dodatni_parametri}
@@ -20,6 +20,7 @@ reset='\e[0m'
 # Preveri, če je podanih dovolj argumentov (ime programa)
 if [ "$#" -eq 0 ]; then
   echo "Uporaba: $0 <ime_programa> <dodatni_parametri>"
+  echo "Dodatni parametri: T={} - timeoutlimit, M={} - measuretime, R={} - range of tests (1- || -4 || 2-5)"
   exit 1
 fi
 
@@ -34,6 +35,11 @@ to=2.0
 M_time=0
 total_time=0
 
+# Testno območje
+testi_zacetek=-1
+testi_konec=-1
+range="ALL"
+
 # Preglej dodatne parametre
 while [ $# -gt 0 ]; do
   case "$1" in
@@ -46,6 +52,22 @@ while [ $# -gt 0 ]; do
         echo "Napačna vrednost M. Mora biti 0 ali 1."
         exit 1
       fi 
+      ;;
+    R=*) # Če argument ustreza "R=1-2" (nastavitev range)
+      range="${1#R=}"
+      # Preverite, ali obstaja začetek in konec obsega
+      if [[ "$range" =~ ^[0-9]+-?[0-9]*$ ]]; then
+		testi_zacetek="${range%%-*}"
+		testi_konec="${range#*-}"
+		if [ -z "$testi_konec" ]; then
+			testi_konec=-1
+		fi
+      elif [[ "$range" =~ ^-[0-9]+$ ]]; then
+        testi_konec="${range#-}"
+      else
+        echo "Napačen format obsega R: $range"
+        exit 1
+      fi
       ;;
     *)
       # Neveljaven parameter
@@ -62,9 +84,8 @@ echo -e "---------------------------------------------${reset}"
 
 echo -e "${white}Timelimit = ${to}s${reset}"
 echo -e "${white}Measure time = ${M_time}${reset}"
+echo -e "${white}Test range = ${range}${reset}"
 echo ""
-
-
 
 g++ "${program}.cpp" -o ${program} -std=c++20 -pedantic -Wall
 
@@ -113,7 +134,15 @@ testing() {
 	do
 	  # Pridobi številko testa iz imena datoteke (npr. "test01.in" -> "01")
 	  input_number=$(echo "$input_file" | sed 's/test\([0-9]\{2\}\)\.in/\1/')
-	  
+
+	  # Preveri, ali je številka testa znotraj obsega
+
+	  if [ $testi_zacetek -ne -1 ] && [ $input_number -lt $testi_zacetek ]; then
+	  		continue
+	  fi
+	  if [ $testi_konec -ne -1 ] && [ $input_number -gt $testi_konec ]; then
+	  		break
+	  fi  
 	  output_file_rez="test$input_number.out"
 	  output_file_temp="test$input_number.res"
 	  output_file_diff="test$input_number.diff"

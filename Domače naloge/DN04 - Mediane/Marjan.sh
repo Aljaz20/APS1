@@ -1,5 +1,5 @@
 #####################################
-			VERSION=1.5
+			VERSION=1.6
 #####################################
 
 #./Marjan.sh {ime_datoteke} {dodatni_parametri}
@@ -100,6 +100,7 @@ test_count=0
 
 # funkcija ob koncu izvajanja
 izpisi_rezultate() {
+	preimenuj=0
 	# Izpiši število pravilnih testov na koncu
 	echo -e "${white}---------------"
 	if [ $((test_count -  done_tests)) -ne 0 ]; then
@@ -107,6 +108,7 @@ izpisi_rezultate() {
 	fi
 	if [ $done_tests -ne 0 ]; then
 	  echo "Ostali opravljeni testi : $done_tests"
+	  preimenuj=1
 	fi
 
 	if [[ ${M_time} = 1 ]]; then
@@ -118,9 +120,31 @@ izpisi_rezultate() {
 	  averagetime="$averagetime s"
 	  echo "Average time = ${averagetime}"
 	fi
-
+	
+	if [ $preimenuj -eq 1 ]; then
+	  echo ""
+	  echo -e "${blue}Do you want to rename .res to .out? (y/n)${reset}"
+	  read -r answer
+	  if [[ $answer =~ ^[Yy]$ ]]; then
+	    echo -e "${white}Renaming..."
+		for input_file in test*.in;
+		do
+		  input_number=$(echo "$input_file" | sed 's/test\([0-9]\{2\}\)\.in/\1/')
+		  output_file_rez="test$input_number.out"
+		  output_file_temp="test$input_number.res"
+		  if [ -f $output_file_rez ]; then
+			continue
+		  else
+		    if [ -f $output_file_temp ]; then
+		  	  mv $output_file_temp $output_file_rez
+			fi  
+		  fi
+		done
+		echo -e "${green}Done."
+	  fi  	
+	fi
+	
 	echo -e ${reset}
-
 	rm "${program}"
 	exit 1
 }
