@@ -1,5 +1,5 @@
 #####################################
-			VERSION=1.6.1
+			VERSION=1.6.2
 #####################################
 
 #./Marjan.sh {ime_datoteke} {dodatni_parametri}
@@ -32,7 +32,7 @@ shift 1
 to=2.0
 
 # Izpiši čas
-M_time=0
+M_time=1
 total_time=0
 
 # Testno območje
@@ -204,6 +204,11 @@ testing() {
 	  if [ $rezultat -eq 124 ]; then
 		echo -e "Test $input_number: ${purple}Timeout${reset}${measuredTimeString}"
 		rm $output_file_temp
+		if [ -f $output_file_rez ];then
+		  rezultat=-1
+		else
+		   done_tests=$((done_tests + 1))
+		fi
 	  else
 		if [ -f $output_file_rez ]; then
 			# Primerjaj izhod programa s pričakovanim izhodom

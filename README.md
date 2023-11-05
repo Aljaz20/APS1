@@ -9,7 +9,7 @@ Seznam rešenih domačih nalog:
 ----------
 - DN01 -> DN05.
 
-Testiranje s programom `Marjan.sh` (Current version == 1.6.1):
+Testiranje s programom `Marjan.sh` (Current version == 1.6.2):
 ---------
 Program `Marjan.sh` omogoča samodejno testiranje vašega programa s testnimi primeri.
 ### Pred uporabo:
@@ -24,7 +24,7 @@ chmod u+x Marjan.sh
 ```
 
 ### Primeri uporabe:
-- Torej program `Resitev.cpp` se testira tako (s privzetimi nastavitvami - Timelimit = 2.0 s, Measure_time = 0, Range_of_test = ALL):
+- Torej program `Resitev.cpp` se testira tako (s privzetimi nastavitvami - Timelimit = 2.0 s, Measure_time = 1, Range_of_test = ALL):
 ```shell
 ./Marjan.sh Resitev
 ```
@@ -35,7 +35,7 @@ chmod u+x Marjan.sh
 
 - Če pa želite uporabiti dodatne parametre pa to lahko naredite na takšne način:
 ```shell
-./Marjan.sh Resitev T=1.0 M=1 R=3-7
+./Marjan.sh Resitev T=1.0 M=0 R=3-7
 ```
 
 Prevajanje in poganjanje posameznih programov:
