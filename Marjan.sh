@@ -1,5 +1,5 @@
 #####################################
-			VERSION=1.6
+			VERSION=1.6.1
 #####################################
 
 #./Marjan.sh {ime_datoteke} {dodatni_parametri}
@@ -203,6 +203,7 @@ testing() {
 	  # Preveri, ali je program presegel časovni limit
 	  if [ $rezultat -eq 124 ]; then
 		echo -e "Test $input_number: ${purple}Timeout${reset}${measuredTimeString}"
+		rm $output_file_temp
 	  else
 		if [ -f $output_file_rez ]; then
 			# Primerjaj izhod programa s pričakovanim izhodom
