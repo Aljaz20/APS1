@@ -11,10 +11,6 @@ private:
     vector<int> t;
 public:
     void push(int x) {
-        /*
-        vector<int>::iterator it = upper_bound(t.begin(), t.end(), x);
-        t.insert(it, x);
-        */
         if (t.size() == 0 || t[t.size() - 1] <= x){
             t.push_back(x);
             return;
@@ -40,12 +36,6 @@ public:
     }
 
     void remove(int x) {
-        /*
-        vector<int>::iterator it = lower_bound(t.begin(), t.end(), x);
-        if (it != t.end() && *it == x){
-            t.erase(it);
-        }
-        */
         if (t.size() == 0 || t[t.size() - 1] < x){
             return;
         }
@@ -89,24 +79,16 @@ public:
             min = max;
             max = temp;
         }
-        /*
-        vector<int>::iterator it1 = lower_bound(t.begin(), t.end(), min);
-        vector<int>::iterator it2 = upper_bound(it1 , t.end(), max);
-        return (int)(it2 - it1);
-        */
-        if (velikost == 0){
+        if (velikost == 0 || max < t[0] || min > t[velikost - 1]){
             return 0;
         }
         int mid;
+        int min1 = 0;
+        int max1 = velikost - 1;
         if (min <= t[0]){
             min = 0;
         }
-        else if (min > t[velikost - 1]){
-            min = velikost;
-        }
         else{
-            int min1 = 0;
-            int max1 = velikost - 1;
             while (min1 < max1){
                 mid = (min1 + max1) / 2;
                 if (t[mid] >= min){
@@ -124,31 +106,23 @@ public:
         if (max >= t[velikost - 1]){
             max = velikost- 1;
         }
-        else if (max < t[0]){
-            max = -1;
-        }
         else{
-            int min2 = min;
-            int max2 = velikost- 1;
-            while (min2 < max2){
-                mid = (min2 + max2) / 2;
+            max1 = velikost- 1;
+            while (min1 < max1){
+                mid = (min1 + max1) / 2;
                 if (t[mid] <= max){
-                    min2 = mid + 1;
+                    min1 = mid + 1;
                 }
                 else{
-                    max2 = mid;
+                    max1 = mid;
                 }
             }
-            if (t[max2] > max){
-                max2--;
+            if (t[max1] > max){
+                max1--;
             }
-            max = max2;
-        }
-        if (min > max){
-            return 0;
-        }        
+            max = max1;
+        }    
         return max - min + 1;
-        
     }
 };
 
