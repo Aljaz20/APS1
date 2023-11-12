@@ -3,126 +3,51 @@
 #include <algorithm>
 using namespace std;
 
-// za dodajanje v vreco uporabimo binary search, enako za odstranjevanje. Za prestej uporabimo binary search za min in max, nato pa odstejemo indeksa
-// in pristejemo 1
+// Uporabimo statično drevo(SUM), ki ga zgradimo na začetku. V njega shranjujemo število elementov na intervalu.
 
 class Vreca {
 private:
     vector<int> t;
+    int n=1048576; // 2^20
+    struct Node { long sum, begin, end; };
+    vector<Node> tree;
 public:
-    void push(int x) {
-        if (t.size() == 0 || t[t.size() - 1] <= x){
-            t.push_back(x);
-            return;
-        }
-        int mid;
-        int min = 0;
-        int max = t.size() - 1;
-        while (min < max){
-            mid = (min + max) / 2;
-            if (t[mid] > x){
-                max = mid;
-            }
-            else if (t[mid] < x){
-                min = mid + 1;
-            }
-            else{
-                t.insert(t.begin() + mid, x);
-                return;
-            }
-        }
-        t.insert(t.begin() + min, x);
-        
+    Vreca () {
+        t.resize(n);
+        tree.resize(2*n);
+        build();
     }
 
-    void remove(int x) {
-        if (t.size() == 0 || t[t.size() - 1] < x){
-            return;
+    void push(int x){
+        int id = x + n;
+        tree[id] = {tree[id].sum+1, id-n, id-n+1};
+        while (id > 1) {
+            id /= 2;
+            tree[id] = {tree[2*id].sum + tree[2*id+1].sum, tree[2*id].begin, tree[2*id+1].end};
         }
-        int mid;
-        int min = 0;
-        int max = t.size() - 1;
-        while (min < max){
-            mid = (min + max) / 2;
-            if (t[mid] > x){
-                max = mid;
-            }
-            else if (t[mid] < x){
-                min = mid + 1;
-            }
-            else{
-                t.erase(t.begin() + mid);
-                return;
-            }
-        }
-        if (t[min] == x){
-            t.erase(t.begin() + min);
-        }
-        
     }
 
-    int size(){
-        return (int)t.size();
+    void pop(int x){
+        int id = x + n;
+        int temp = tree[id].sum > 0 ? tree[id].sum - 1 : 0;
+        tree[id] = {temp, id-n, id-n+1};
+        while (id > 1) {
+            id /= 2;
+            tree[id] = {tree[2*id].sum + tree[2*id+1].sum, tree[2*id].begin, tree[2*id+1].end};
+        }
     }
 
-    void izpisi(){
-        for (int i = 0; i < (int)t.size(); i++){
-            cout << t[i] << " ";
-        }
-        cout << endl;
+    void build(int id=1) {
+        if (id>=n) { tree[id] = {t[id-n], id-n, id-n+1}; return; }  // list
+        int left=2*id, right=2*id+1;
+        build(left); build(right);
+        tree[id] = {tree[left].sum + tree[right].sum, tree[left].begin, tree[right].end};
     }
 
-    int prestej(int min, int max){
-        int velikost = (int)t.size();
-        if (max < min){
-            int temp = min;
-            min = max;
-            max = temp;
-        }
-        if (velikost == 0 || max < t[0] || min > t[velikost - 1]){
-            return 0;
-        }
-        int mid;
-        int min1 = 0;
-        int max1 = velikost - 1;
-        if (min <= t[0]){
-            min = 0;
-        }
-        else{
-            while (min1 < max1){
-                mid = (min1 + max1) / 2;
-                if (t[mid] >= min){
-                    max1 = mid;
-                }
-                else{
-                    min1 = mid+1;
-                }
-            }
-            if (t[min1] < min){
-                min1++;
-            }
-            min = min1;
-        }
-        if (max >= t[velikost - 1]){
-            max = velikost- 1;
-        }
-        else{
-            max1 = velikost- 1;
-            while (min1 < max1){
-                mid = (min1 + max1) / 2;
-                if (t[mid] <= max){
-                    min1 = mid + 1;
-                }
-                else{
-                    max1 = mid;
-                }
-            }
-            if (t[max1] > max){
-                max1--;
-            }
-            max = max1;
-        }    
-        return max - min + 1;
+    long query(int l, int r, int id=1) {
+        if (l<=tree[id].begin && tree[id].end<=r) return tree[id].sum;  // znotraj
+        if (r<=tree[id].begin || tree[id].end<=l) return 0;           // zunaj
+        return (query(l,r,2*id) + query(l,r,2*id+1));
     }
 };
 
@@ -136,9 +61,15 @@ int main(){
         if (s < 0){
             v.push(x);
         }else if (s == 0){
-            v.remove(x);
+            v.pop(x);
         }else{
-            sum += v.prestej(x, s);
+            int temp;
+            if (x > s){
+                temp = x;
+                x = s;
+                s = temp;
+            }
+            sum += v.query(x, s+1);
         }
     }
     cout << sum << endl;
