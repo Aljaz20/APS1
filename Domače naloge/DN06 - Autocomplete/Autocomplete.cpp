@@ -99,7 +99,7 @@ int main(){
     }
 
     for (int i = 0; i < M; i++){
-        cout << rezultati[i] << endl;
+        cout << rezultati[i] << "\n";
     }
     
     return 0;
