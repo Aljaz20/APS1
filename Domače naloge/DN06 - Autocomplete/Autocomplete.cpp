@@ -4,8 +4,9 @@
 #include <string>
 using namespace std;
 
-// najprej sortiramo, nato pa binary search
+// najprej array z pozicijami glede na abecedni vrstni red, nato pa binary search
 
+/*
 class Slovar{
 private:
     vector<pair<string, int>> t;
@@ -74,28 +75,80 @@ public:
         return poz;            
     }
 };
-
+*/
 
 
 int main(){
     int N, x, M;
     string s;
     cin >> N;
-    Slovar v(N);
     vector<int> stevila;
-    for (int i = 1; i <=N; i++){
+    vector <string> besede;
+    vector <int> pozicije;
+    for (int i = 0; i < N; i++){
         cin >> s >> x;
-        v.dodaj(i, s);
         stevila.push_back(x);
+        besede.push_back(s);
+        pozicije.push_back(i);
     }
-    v.sortiraj();
-    //v.izpisi(stevila);
-
+    sort(pozicije.begin(), pozicije.end(), [&besede](int i1, int i2) {return besede[i1] < besede[i2];});
+    /*
+    for(int i = 0; i < N; i++){
+        cout << besede[pozicije[i]] << " " << stevila[pozicije[i]] << " " << pozicije[i] + 1 << endl;
+    }
+    */
     cin >> M;
     int *rezultati = new int[M];
-    for (int i = 0; i < M; i++){
+    for (int j = 0; j < M; j++){
         cin >> s;
-        rezultati[i] = v.poisci(s, stevila);
+        //rezultati[i] = v.poisci(s, stevila);
+        int min = 0;
+        int dolzina1 = (int)s.length();
+        int dolzina2, dolzina;
+        if (besede[pozicije[N-1]].compare(s) < 0){
+            rezultati[j] = 0;
+            continue;
+        }else if(besede[pozicije[0]].compare(s) <= 0){
+            int mid;
+            int max = N - 1;
+            while (min < max){
+                mid = (min + max) / 2;
+                int rez = besede[pozicije[mid]].compare(s);
+                if (rez > 0){
+                    max = mid;
+                }
+                else if (rez < 0){
+                    min = mid + 1;
+                }else{
+                    min = mid;
+                    break;
+                }
+            }
+        }
+        int max = 0;
+        int poz = 0;
+        while (min < N){
+            dolzina2 = (int)besede[pozicije[min]].length();
+            dolzina = dolzina1 <= dolzina2 ? dolzina1 : dolzina2;
+            int preveri = 0;
+            for (int i = 0; i < dolzina; i++){
+                if (s[i] != besede[pozicije[min]][i]){
+                    preveri = 1;
+                    break;
+                }
+            }
+            if (preveri == 0){
+                if (stevila[pozicije[min]] > max){
+                    max = stevila[pozicije[min]];
+                    poz = pozicije[min] + 1;
+                }
+            }else{
+                break;
+            }
+            
+            min++;
+        }
+        rezultati[j] = poz;
     }
 
     for (int i = 0; i < M; i++){
