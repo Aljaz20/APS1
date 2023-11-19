@@ -1,5 +1,5 @@
 #####################################
-			VERSION=1.7
+			VERSION=1.7.1
 #####################################
 
 #./Marjan.sh {ime_datoteke} {dodatni_parametri}
@@ -34,7 +34,13 @@ if [ ! -f "${program}.cpp" ]; then
 	echo "Datoteka ${program} in ${program}.cpp ne obstaja."
 	exit 1
   else
-	remove=0
+  	remove=0
+	  # če je datoteka s končnico .cpp
+	  if [[ "${program}" == *".cpp" ]]; then
+	  	program="${program%.*}"
+		g++ "${program}.cpp" -o ${program} -std=c++20 -pedantic -Wall
+		remove=1
+	  fi
   fi
 else
   g++ "${program}.cpp" -o ${program} -std=c++20 -pedantic -Wall
@@ -42,7 +48,7 @@ fi
 
 
 # Čas za timeout
-to=2.0
+to=2.5
 
 # Izpiši čas
 M_time=1
