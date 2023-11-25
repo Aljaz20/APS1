@@ -9,7 +9,7 @@ Seznam rešenih domačih nalog:
 ----------
 - DN01 -> DN06.
 
-Testiranje s programom `Marjan.sh` (Current version == 1.7.1):
+Testiranje s programom `Marjan.sh` (Current version == 1.7.2):
 ---------
 Program `Marjan.sh` omogoča samodejno testiranje vašega programa s testnimi primeri.
 ### Pred uporabo:
