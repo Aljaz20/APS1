@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 
-// 
+// najprej preverimo ali je dolzina sploh v pravilnem območju. Besedo S razdelimo na manjše besede, ki so ločene s *. 
 
 pair <int, int> ujemanje(string s, string t){
     int s_dolzina = s.length();
