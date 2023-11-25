@@ -7,7 +7,7 @@ Delo pri predmetu Algoritmi in podatkovne strukture 1 (C++) UNI, Fakulteta za ra
 
 Seznam rešenih domačih nalog:
 ----------
-- DN01 -> DN06.
+- DN01 -> DN07.
 
 Testiranje s programom `Marjan.sh` (Current version == 1.7.2):
 ---------
