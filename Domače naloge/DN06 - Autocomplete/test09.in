@@ -1,183 +1,733 @@
-147
-kvazievklidski 577023
-altergalerijski 202230
-polacca 469192
-rancuh 685374
-zajla 57532
-potopljivost 858664
-malvinski 616613
-pricakovanjapoln 497685
-cukrek 781777
-odlicnjakarstvo 807223
-angiotropen 677146
-grilov 697679
-realist 812809
-zbriga 397293
-dvopoveden 684661
-elektrokoagulacija 905402
-povezniti 975694
-amidiakin 815122
-samoodgovarjanje 288173
-cunta 884363
-izpogajanje 422419
-ostroznica 310153
-spehavati 691956
-kartografiranje 88199
-celarevski 863103
-zlemnat 328430
-razah 106729
-abaz 694667
-prikrosnjariti 632548
-veleracija 348340
-prairial 755226
-piat 744270
-samoizpovedovalen 686570
-privatizacijski 166629
-izpraskati 917650
-protoevropski 260833
-denuklearizacija 342719
-frfotavec 433329
-centiopoaz 279541
-historiograf 161904
-izvenstrojniski 755778
-superposadka 786112
-rdecelakten 691366
-gnusnognusen 630927
-obvezovalisce 376056
-kablov 179033
-antibioticen 860127
-prostodusnica 991538
-uclovecenjski 477541
-protiizraelstvo 884756
-neugajanje 657724
-planetoplan 34141
-endoglin 365781
-opoldnic 244666
-hapening 906929
-ognjenooranzast 770228
-ergoklonin 401127
-krehetati 220201
-samoizvotljenje 976175
-nastezaj 799437
-predtelovadba 893244
-rekodiranje 383901
-bukvarna 256982
-odsinoviti 148639
-trivaljen 279319
-balonstvo 906049
-soglasodajalstvo 874403
-dezartikuliranost 395593
-nepogodnost 363012
-otrpel 797561
-poocvirkati 73876
-vzbrneti 132155
-tisocbeseden 411319
-hudobetnica 213909
-modrogardist 671810
-pokonzumiran 320535
-zaostajac 417092
-kemizem 44819
-kliconosec 754743
-rasenje 865345
-razposlanje 721523
-ulegati 192316
-mehovec 228275
-nezasukan 237482
-ektrokrin 798219
-sopara 474636
-beteliziranje 641761
-klapouhac 192982
-navlaka 845466
-namesa 188392
-bulvan 621543
-drazljivec 244022
-medic 327918
-sorelizem 998441
-izpodrivac 385459
-brzinometer 557362
-prosilcev 50290
-okamenevati 488735
-kovinostrugar 266669
-drazestnost 965679
-izplaziti 222052
-vsenaeno 634358
-elektrovzdrzevalka 51643
-nadeven 15482
-polslovanski 108255
-obkvackanje 721744
-medijskospecificen 166999
-pozavarovaljiv 733068
-podrevesen 213008
-crnogrl 238299
-zgostevati 684092
-intergrupen 59154
-kodorski 450322
-crnoklas 984385
-dokumentaricnost 429485
-ciklotin 397963
-vrecastokljun 179101
-pridigovarski 292689
-zdrazbarski 904838
-diamirski 698848
-opazovalcev 222868
-medlevanje 673181
-radionuklid 55427
-puhljac 388818
-causa 846137
-gabrski 940945
-podkralj 818042
-kalica 346996
-dokopati 408131
-anatomist 556044
-nevromuskulaturen 625197
-pahavka 341178
-visokodinamicen 78790
-sinicica 816033
-tretjetoznica 165690
-obupavati 13762
-predomisljevati 45682
-samozrtvovanec 44002
-muzikalizacija 960536
-administriranec 829510
-preigravan 701139
-prigrajati 676586
-pluridimenzionalnost 628533
-sabota 210574
-vodonetopen 474917
-aminoacetat 709561
-reformen 451163
-34
-nepogod
+677
+vbrizgavajoc 175292
+anamaja 474918
+colnar 92801
+redanica 430613
+nevinogradniski 260201
+oblacevje 163834
+predpostavljanje 399497
+pencl 761227
+hvaljenec 288535
+enocetrtinski 495980
+koristoljubniski 819308
+podpolkovnik 246755
+popecatiti 673894
+stambiler 383073
+nocnina 164230
+novofundlandec 466901
+kikeljkokelj 795726
+podrepnost 718527
+celton 790041
+sleherten 283950
+thymus 803294
+zvocnoizolacijski 143316
+preobracilen 635575
+nadjata 726267
+izpoljubljati 549788
+odlaganje 379656
+convair 94604
+opovrzba 627573
+hitinski 871282
+mikrotokoven 985344
+centricnost 431288
+kumul 581910
+protibolecinsko 992663
+veleomrezje 686710
+prodajnoreklamen 32020
+osminka 65174
+smogovec 146191
+bobrovka 725108
+nebnicen 680512
+megadrzava 862517
+ogolidrati 724357
+takojsnost 352653
+kristalokemija 175629
+korpuski 1664
+obuhniti 26136
+denitrirati 966946
+stiriniten 289651
+hotentot 252110
+subsistenca 58150
+fitokompleks 415147
+pekulij 399526
+vecajoc 925411
+sunovec 256318
+prizareti 11840
+strceljcek 71259
+krivulja 786732
+pridisnik 25737
+disecnina 296700
+aluminofosfat 768664
+ritobrusec 346106
+peckar 258431
+zvacinstvo 244703
+koan 541210
+potomnost 22568
+peza 442190
+algebraik 926563
+sadovnik 348753
+mikrovolt 710656
+spajkalec 636090
+motosporten 933996
+iztrobentati 313461
+petdesetak 396897
+papiruh 34220
+severnosirski 598527
+samosramovanje 198059
+sodilec 231284
+privreti 48727
+dramamin 804752
+izvalilen 166457
+bisociativno 803914
+rotavirusen 230723
+diastraticen 848800
+prezagati 38572
+morozovec 221122
+spargeljnica 267463
+neoformalizem 308780
+trojce 93071
+marsevski 230423
+dreznjati 560188
+debelomasten 328590
+inokulat 756710
+trikalisce 801371
+preeksistirati 531173
+hrzgetati 365443
+sestinpoluren 337771
+razmazovati 244203
+zarada 165596
+lancar 41485
+zmrzliti 672236
+raditi 926831
+konkurirajoc 553015
+lepovremec 186013
+slavka 586585
+putikar 338713
+zadetnost 768925
+krilonoska 940420
+izvenrazumski 940566
+cestarski 897985
+pobrlevati 141480
+zadruziti 625300
+smrekusa 932861
+drstav 406162
+koncevati 888321
+malotvoren 147542
+slumovski 951097
+sedmerokril 530995
+paspuliranje 119554
+pochette 768629
+dvoklik 159473
+bimanualen 711745
+poglejtati 161598
+mimosolski 729832
+drevenje 380577
+zrevolucionalizirati 137769
+primiriti 760088
+sanfedisticen 400677
+draguljarna 760954
+vsuti 357325
+razburjenka 932890
+punkljati 695634
+nestrumen 247255
+ozvociti 638419
+cilindricnost 89439
+fotorealizem 877487
+bogogledanje 14381
+pedanticen 31407
+odznaka 899331
+vojniski 394036
+matreiski 520332
+planincev 869059
+hroscevski 77173
+brslinast 253459
+politicnosatiricen 553200
+bouldrski 917601
+koscic 151212
+medrija 984440
+drsniski 681945
+stiriindvajsetica 765035
+kinoprikazovalski 983335
+oblanica 822011
+sentistvanski 916368
+nevsecje 609535
+prihladiti 346357
+vrivalen 88982
+difosfaten 439889
+ponjava 494521
+prapresnica 787052
+nadzidnik 81529
+makroseizmoticen 317273
+narobesnob 770328
+spravljiciti 810443
+prozurski 283839
+proteinoid 844209
+oklepek 180836
+filosemit 792024
+neskoncje 88236
+kratkopecljat 791804
+samouresnicen 676053
+sirokohrbten 39446
+intermedija 34113
+talilo 285065
+sredisciti 552506
+neizdivjan 759952
+navreci 401045
+judejski 739797
+hladnikovka 833592
+bizuterist 48326
+psevdosolarizacija 226719
+bronhodilatacijski 909201
+nekovac 154668
+pozlahtnjevatelj 122867
+porimski 597981
+odresenjski 647250
+blusc 225348
+razpeketati 917605
+troglobionten 942805
+pozitivski 895508
+ljubimka 727473
+brodarscina 114092
+narodnocentricno 742127
+podvihovati 973483
+fratosk 878417
+jagodnast 268706
+duhovititi 832624
+neujetost 760847
+kompjuterizirati 46004
+karbolski 817815
+soloplesen 245408
+gyrocopter 147623
+desetdolarski 491009
+ladjedelnica 311780
+racunalnicek 293711
+vodenenje 396275
+tascica 249569
+kurtizan 151686
+strojnik 572347
+fotografski 254884
+mesincnica 679036
+truditi 620153
+sturmbataljon 841943
+vodnjar 622637
+strankokratsko 756375
+nedendriten 976178
+kozmobiologija 535435
+samoopravicujoc 766347
+popisovanje 436608
+hresje 587153
+prestabiliran 558980
+ionskomolekularen 885894
+dramilka 352505
+plevelov 461282
+predrazpolozenje 381015
+oblikovanec 875947
+trzav 758630
+prisojevanje 300337
+sivinski 443102
+preadolescenca 33817
+ditinov 33405
+kocijica 378604
+denaturalizirati 681177
+golcanje 845787
+platonski 72297
+tridomen 499583
+strokovnoizvajalen 295725
+antimezenterialen 23579
+frakcionaza 886330
+dekotacija 641780
+skolnikovica 806670
+ekscerpirati 895451
+pouziten 790978
+predelniski 726249
+tipizovanje 251168
+pobliskavajoc 120072
+balonca 148875
+primlaskati 760701
+ladjemerski 373891
+veleposlanka 1665
+decliski 72101
+tihotapljati 463232
+empaticnost 124165
+imaginarizacija 906769
+anaboliski 804038
+tapka 542574
+zvujgniti 74562
+pesnenje 673489
+avstenitski 563970
+anime 813605
+aviocisterna 577837
+trpezen 921378
+razpostavitev 744383
+teletipen 339675
+entodermalen 811647
+smrcuh 781306
+lvovski 939769
+hemeralopija 931532
+pohisnina 261262
+osmesenje 3146
+olesa 507126
+stiriindvajsetdneven 210729
+jugoveceren 618936
+prafaktor 206806
+zaticinski 768788
+karikaturizem 189295
+izvenmiseln 638522
+multimedijsko 772619
+ditiokarbamat 568811
+streniti 930853
+razmazanka 805914
+hitromer 581978
+drugotozen 459941
+skrizen 39981
+fotoelasticimetrija 135720
+kodirati 367949
+ekskurz 829649
+gozdnosolski 962594
+priresetariti 878068
+zbranec 637864
+izsusiti 397542
+odmamiti 57950
+zunanjepraven 128813
+poobcestviti 399445
+zvocnotehnicen 471540
+protikritika 478213
+lahkokategoren 124024
+cincrlincincin 668861
+antifiskalen 733573
+pajol 574762
+pretarzalen 841908
+nadsubjekten 226887
+orofaringealen 44465
+skopati 264312
+uradniski 590751
+engobiran 182884
+agr 589250
+mikroknjiga 476102
+pridevniski 493033
+kinazen 863607
+prekvadratast 604765
+prepesnjenje 253973
+neocvrt 679911
+veczlozen 182234
+zdiferencirati 768775
+zlomiselnost 131125
+prefigurativen 70482
+ran 464691
+treznitev 59778
+ritualisticen 292233
+namrzniti 111141
+postslovenski 456546
+poklescje 610194
+odnos 225190
+stukaterski 232128
+zbodniti 839893
+valjcevinast 409360
+prezbiterijalen 982892
+lentati 644049
+naizust 422513
+odklanjevalen 179608
+zgodaj 763069
+dieten 963587
+samoreja 464015
+malthusianstvo 629981
+diferenciativen 909307
+avtoerotika 325166
+zanikrnik 823557
+predzaznamba 153971
+osaten 334917
+umen 958024
+voskovina 106556
+merkurooksid 214311
+arbutin 828428
+sokretinar 855982
+presipnik 775988
+izreklamirati 525026
+ucaka 372023
+brezsvojstven 624492
+sladkoogaben 786877
+devettisocica 835799
+predstrukturalen 971137
+mesenikeljc 618038
+benzoksazol 265172
+sobolj 146923
+poslanec 693380
+narkomanka 441060
+sovrastvo 137566
+kap 862403
+velon 630671
+znidrati 589622
+cespljevec 584209
+zazagovati 803459
+levuloza 629387
+geoplosca 190509
+sola 88695
+dekanjin 50315
+ovajalstvo 677303
+izkusen 505066
+drcat 856893
+milostljivka 469788
+miselnocustven 60642
+guca 108134
+zdizajnirati 444592
+entrofen 797093
+cesnek 690869
+depletiran 604188
+dikroit 52179
+izprijenka 195912
+porokinja 116602
+sestankujoci 88889
+odapnenje 623800
+vecvlozen 643535
+sansonjerstvo 589546
+posekljavati 838952
+brezsoden 269054
+avtoeroticizem 395805
+preizkusevalnost 650241
+soosumljeni 327737
+avtoakusticar 79362
+velepristan 457423
+postetje 313711
+sterlina 316961
+gotovski 841733
+mikrofinancnistvo 20500
+havzirati 172829
+kuharka 176646
+komturen 975809
+neobmejen 861118
+zasuznjevanje 784282
+najetje 191998
+zatrkati 655885
+halloweenski 885405
+obocen 501430
+brzopralen 161718
+jeziciti 435028
+medkoreninje 771163
+nadladjar 537943
+geuge 674881
+nenalozen 912002
+armiranje 540961
+paraguma 426481
+ortenburski 90276
+medmembranski 676091
+kretnja 292745
+sopilo 891819
+neznanstvenost 511715
+mecenaski 892466
+organofosforjev 40026
+mobilija 229720
+mracnjaski 743285
+raznomislec 667207
+brezsodek 183789
+pomederela 798918
+preodlocba 272262
+plafoniera 427589
+retrofeministicen 839170
+pokorjenec 668627
+krematorski 866605
+individualnost 746655
+plavznik 191751
+drukar 833701
+sprikla 112187
+spominscicast 618991
+tinkati 205902
+soncenica 171151
+maslenorumen 372828
+pritaliti 232165
+nehadezejevski 578346
+polklet 341524
+osemtockoven 368025
+manipulatorica 532827
+jeklorezarstvo 199293
+vretenastocelicen 365489
+predelavanje 710626
+navecerjati 979497
+omediti 370170
+platicnica 424095
+polstrukturen 120178
+usmotrevanje 94774
+nepoizvedljiv 658746
+sondacija 677386
+upravljivost 583642
+samoobdavcitev 739388
+brezumski 953478
+pomotoma 182864
+vzmesti 50851
+makaronar 121391
+prigrubanje 785235
+repkast 24674
+zelenicen 186464
+neiztreben 521504
+vzdrhtenje 793992
+aeroglasba 849173
+obribati 64318
+predrugacenost 264260
+rebrast 405502
+mozeta 358300
+klapski 272775
+neizogiben 902783
+izobcitev 124103
+nakoprneti 664377
+nekiticen 85
+piren 648066
+seizmicnost 324771
+stanic 121825
+samoimpregnacijski 574878
+vseprevevajoc 46621
+purga 586665
+veristicen 461395
+debitiranje 829378
+samooprijemljiv 989639
+zabiten 541328
+particioniranje 976458
+cikloadicija 156240
+neporocanje 880620
+nacistka 842193
+pagertlc 989642
+zvonica 451670
+misica 362108
+plaveten 541511
+izobr 618992
+metadiskusija 560498
+zapognjenost 89524
+sataras 44331
+skrivalec 501459
+zvirkati 554822
+poprh 110380
+hudicevec 636980
+posesti 546038
+bibliofilija 755044
+plesacica 584064
+kocar 789700
+cikloplegija 283173
+stapelija 976103
+znojavica 511656
+antisigma 15369
+festoso 171991
+mascevalnost 12612
+trobentacek 481935
+litogravura 20269
+manjsalen 370290
+odvecen 226115
+brrr 928862
+zdusevnjevati 528785
+antikomutativnost 792623
+protimet 301582
+megafonirati 592079
+jeralovski 75683
+zdruzljivec 366381
+celebrirati 127176
+podregniti 874171
+camer 542115
+zaiti 76709
+prenavijasko 678386
+protislonji 627861
+madija 305513
+omegleti 499015
+pristevit 899513
+galalit 201476
+obljudevanje 413698
+slivnjak 341748
+vinovod 870092
+odpiralka 305305
+vinogradski 913009
+dramatizacijski 924104
+izdirati 304372
+balonarstvo 364534
+investitorski 409723
+shajanje 725014
+vecstatven 119847
+premisel 497030
+sobaliti 217452
+lisjacenje 297884
+fronkarski 534058
+oklicen 685353
+drgnjenje 759886
+zemljoalkalijski 620254
+gnojnica 795952
+aborizdinski 529227
+kristalinski 784163
+podnormiranost 926468
+prepokusati 324718
+samozastava 988724
+grendesa 220062
+nazeblost 189645
+hamric 747004
+brekvenica 23625
+popotovski 493441
+reviziorat 31329
+dumpsing 77244
+papaverin 30574
+zanikrnija 409524
+nemaorski 66303
+navar 824213
+besedilosloven 962656
+novooseliski 480979
+ataraksija 163673
+fenologija 867225
+odkrhavanje 83481
+klenoslovenski 254525
+srednjepaleocenski 602655
+ideoloskovzgojen 793227
+zitonosen 653891
+zagre 759490
+hekdekan 665630
+kontramanipulacija 248458
+zapletenopreprost 165799
+polizpodriven 873504
+zaprasiti 677056
+kvo 835229
+kremnobeti 874084
+predkapitalisticen 330041
+izmezeti 975156
+laks 164658
+pedipalpa 512944
+volgograjski 145061
+zaglas 20721
+bilecanski 150032
+trikomponenten 965736
+castnik 954328
+kinotorek 374808
+srenjenje 729846
+multiventil 947942
+zakasnjenje 151717
+cakalen 963899
+privileg 547900
+zasnutek 730397
+primisljati 965390
+trdozivost 622342
+zasnovanost 739234
+povivati 428098
+nevegetarijanka 279314
+dopeti 531444
+lornjet 158588
+voznikov 510803
+crtomirovski 684807
+bogocestvarnik 659195
+podrtljivost 391278
+visokoimperialisticen 600124
+naderoticen 714250
+vritleznistvo 860366
+podsoden 429404
+vdanosten 655896
+vegeta 983783
+erlavbati 682336
+sedemindevetdesetkrat 582952
+cari 734833
+mandolinist 998967
+advokatek 634077
+poinformbirojevski 842925
+postrezek 991086
+termoklinala 725330
+glasnik 869952
+noveliranje 889113
+sultanina 459430
+prizanesitev 190793
+fellinijevski 839671
+silje 585070
+pokazahstansko 414914
+nanotamburin 744119
+monopolarnost 518017
+hitropristanski 968616
+sadist 56791
+alkimisticen 738706
+omulj 102949
+konvejor 133001
+veskresen 492715
+aminopropan 565624
+zoltopolt 945813
+zvecljiv 237486
+polribnik 273500
+pogojenost 613401
+utekocinjenje 72445
+spbr 137242
+asortiman 993363
+vsemesten 812217
+zasetati 259206
+nabokel 266786
+podolnica 585874
+prevezovalen 855172
+patristicen 459395
+laziucen 406966
+soldatinja 528697
+izgorina 136933
+biograjski 361818
+zeljenje 458228
+navigacionizem 263549
+skoficek 296041
+zrifljati 706058
+inrotuliranje 38215
+alberta 563008
+kamnitnica 42737
+nepremijski 947674
+jelicka 439383
+ozobcati 233167
+ilegalnost 316652
+zopermasoven 350141
+duhovnocustven 446655
+vozina 347464
+embaliranje 288841
+nezveden 555238
+vsepozirajoc 122969
+oduska 177197
+vsemanjsinski 286716
+preganjavati 111203
+zakonskotehnicen 53853
+tropicje 673644
+kvazilaburisticen 150612
+spati 518511
+54
+dnmeo
+rsddfjsifcl
+p
+dqcbnmqeqwxmwfpnyaedaxersu
+o
+zvwiqarxsmcobiznhgdi
+po
+plat
+na
+visokoimperia
+multim
+rotavirusen
+enpwcxna
+lahkokatego
+dvo
+blus
+zm
+merkuroo
+lvov
+jug
+antimezenter
+o
+po
+poinformbirojev
+dcvldpvrftnvvp
+ircdzmyxqlbfzjl
+bogoce
+centri
+dr
+pri
+nam
+platicnic
+kosc
+ucaka
+rhapivs
+prihla
+izmezeti
+kr
+fi
+bould
+debelomasten
+marsev
+zvujgniti
+cari
+iztrobentati
+zapognj
+makaron
 s
-dezartikuliranos
-pr
-zdraz
+k
+oblanica
 f
-zdevqomdvobtneodymojrm
-m
-dddevccrsla
-nezasu
-gabrsk
-ipwffdlptxyrggktspxkhlzrg
-radionu
-nepogo
-potopl
-pl
-ra
-podkral
-radionuk
-draze
-povez
-bulv
-predtelovadb
-pov
-reforme
-kliconos
-rekod
-polslovans
-pahavk
-d
-zaos
-diami
-angio
-meho
+preeksistirati
+osmink
+razmazank
