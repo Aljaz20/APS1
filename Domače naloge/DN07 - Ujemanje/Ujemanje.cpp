@@ -39,11 +39,8 @@ int main(){
                     if (i + j >= t_dolzina){
                         naprej = 1;
                         break;
-                    }
-                    if (podniz[j] != t[i + j]){
-                        if (podniz[j] == '?'){
-                            continue;
-                        }
+                    }                
+                    if (podniz[j] != t[i + j] && podniz[j] != '?'){
                         preveri = 1;
                         break;
                     }
@@ -64,8 +61,8 @@ int main(){
                 continue;
             }
         }
-        //cout << "prvi: " << prvi << endl;
-        //cout << "zadnji_znakt: " << zadnji_znakt << endl;
+        
+        
         while (zadnji_znaks != s_dolzina - 1){
             size_t found = s.find('*', zadnji_znaks + 1);
 
@@ -74,20 +71,17 @@ int main(){
             }
             
             string podniz = s.substr(zadnji_znaks + 1, found - zadnji_znaks - 1);
-            //cout << "podniz: " << podniz << endl;
-            if (podniz.length() != 0){
+           
+            if (podniz.length() > 0){
                 int preveri = 0;
-                for (int i = zadnji_znakt; i < t_dolzina; i++){
+                for (int i = zadnji_znakt + 1; i < t_dolzina; i++){
                     preveri = 0;
                     for(int j = 0; j < (int)podniz.length(); j++){
-                        if (podniz[j] != t[i + j]){
-                            if (i + j >= t_dolzina){
-                                naprej = 1;
-                                break;
-                            }
-                            if (podniz[j] == '?'){
-                                continue;
-                            }
+                        if (i + j >= t_dolzina){
+                            naprej = 1;
+                            break;
+                        }
+                        if (podniz[j] != t[i + j] && podniz[j] != '?'){
                             preveri = 1;
                             break;
                         }
