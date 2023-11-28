@@ -20,22 +20,22 @@ chmod u+x Marjan.sh
 
 ### Splošna navodila za uporabo:
 ```shell
-./Marjan.sh {ime_vasega_programa_brez_koncnice} {dodatni_parametri v poljubnem vrstnem redu}
+./Marjan.sh {ime_vasega_programa} {dodatni_parametri v poljubnem vrstnem redu}
 ```
 
 ### Primeri uporabe:
 - Torej program `Resitev.cpp` se testira tako (s privzetimi nastavitvami - Timelimit = 2.0 s, Measure_time = 1, Range_of_test = ALL):
 ```shell
-./Marjan.sh Resitev
+./Marjan.sh Resitev.cpp
 ```
 - Možni dodatni parametri:
     - Timelimit (T=?),
-    - Measure time (M=0/1; 0: no, 1: yes),
+    - Measure time (M=?; 0: no, 1: yes),
     - Range of tests (R=?; 1-, 2-5, -5).
 
-- Če pa želite uporabiti dodatne parametre pa to lahko naredite na takšne način:
+- Če pa želite uporabiti dodatne parametre pa to lahko naredite na takšen način:
 ```shell
-./Marjan.sh Resitev T=1.0 M=0 R=3-7
+./Marjan.sh Resitev.cpp T=1.0 M=0 R=3-7
 ```
 
 Prevajanje in poganjanje posameznih programov:
