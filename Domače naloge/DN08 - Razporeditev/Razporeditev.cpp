@@ -5,7 +5,7 @@
 #include <queue>
 using namespace std;
 
-//
+// searchamo z uporabo BFS. nato pregledamo, če smo obiskali vsa vozlišča. Če smo - izpišemo, če nismo potem gremo na tisto oglišče. ki še ni bilo obiskano
 
 typedef pair<int,int> PII;
 typedef vector<pair<int,int>> VII;
