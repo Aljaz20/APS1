@@ -5,12 +5,14 @@
 #include <queue>
 using namespace std;
 
-// 2 counterja, ki hranita najkrajso in 2. najkrajso pot pot do vozlisca N-1
+// Z uporabo funckije Dijkstra_BQ iz predavanj naredimo 2 seznama razdalj od zacetka do vsakega vozlisca (dist in dist2)
 
+
+/*
 int najkrajsa = 1000000000;
 int druga = 1000000000;
 short obiskani[2001];
-vector<vector<pair<int, int>>> povezave;
+
 
 void poti(int trenutno, int dolzina, int n){
     if (trenutno == n){
@@ -32,10 +34,12 @@ void poti(int trenutno, int dolzina, int n){
         }
     }
 
-}
+}*/
+vector<vector<pair<int, int>>> adjw;
 
-void Dijkstra_BQ(vector<vector<pair<int,int>>> &adjw, int start, vector<int> &dist, vector<int> &dist2) {
+void Dijkstra_BQ(vector<int> &dist, vector<int> &dist2) {
     int n=adjw.size();
+    int start = 0;
     dist=vector<int>(n,-1); 
     dist2=vector<int>(n,-1);
     int c=0;  // maximum weight
@@ -85,16 +89,15 @@ void Dijkstra_BQ(vector<vector<pair<int,int>>> &adjw, int start, vector<int> &di
 int main(){
     int N, M;
     cin >> N >> M;
-    povezave.resize(N+1);
+    adjw.resize(N+1);
     int a, b, x;
     for(int i = 0; i < M; i++){
         cin >> a >> b >> x;
-        povezave[a].push_back({b, x});
-        povezave[b].push_back({a, x});
+        adjw[a].push_back({b, x});
+        adjw[b].push_back({a, x});
     }
-
-    obiskani[0] = 1;
     /*
+    obiskani[0] = 1;
     poti(0, 0, N-1);
 
     if (druga == 1000000000){
@@ -105,7 +108,7 @@ int main(){
     }
     */
     vector<int> dist, dist2;
-    Dijkstra_BQ(povezave, 0, dist, dist2);
+    Dijkstra_BQ(dist, dist2);
     /*
     for (int i = 0; i < N; i++){
         cout << dist[i] << " ";
