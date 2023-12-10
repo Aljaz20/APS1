@@ -70,6 +70,7 @@ void DFS(int n, int zacetek) {
         cout << "count: " << count << endl;
         exit(0);
     }*/
+    vector<int> seq;
     for (int y : sosedi[zacetek]) {
         if (skupine[y] == 0) {
             if (skupine[zacetek] == 1) {
@@ -77,15 +78,21 @@ void DFS(int n, int zacetek) {
             } else {
                 skupine[y] = 1;
             }
-            stevec++;
-            //cout << "y: " << y << " stevec: " << stevec << endl;
-            DFS(n, y);
+            seq.push_back(y);
+            
+            /*
+            cout << "y: " << y << " stevec: " << stevec << endl;
+            DFS(n, y);*/
         }else{
             if (skupine[zacetek] == skupine[y]) {
                 cout << -1 << endl;
                 exit(0);
             }
         }
+    }
+    for (int y : seq) {
+        stevec++;
+        DFS(n, y);
     }
     if (zacetek == 1) {
         while (stevec < n) {
