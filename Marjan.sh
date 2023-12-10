@@ -19,8 +19,8 @@ reset='\e[0m'
 
 # Preveri, če je podanih dovolj argumentov (ime programa)
 if [ "$#" -eq 0 ]; then
-  echo "Uporaba: $0 <ime_programa brez koncnice> <dodatni_parametri>"
-  echo "Dodatni parametri: T={} - timeoutlimit, M={} - measuretime, R={} - range of tests (1- || -4 || 2-5)"
+  echo "Uporaba: $0 <ime_programa> <dodatni_parametri>"
+  echo "Dodatni parametri: T={} - timeoutlimit, M={} - measuretime (0 - NE, 1 - DA), R={} - range of tests (1- || -4 || 2-5)"
   exit 1
 fi
 
