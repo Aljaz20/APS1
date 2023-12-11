@@ -34,6 +34,24 @@ void Dijkstra(vector<int> &dist, vector<int> &prev) {
     }
 }
 
+void Dijkstra_PQ(vector<int> &dist, vector<int> &prev) {
+    int n=adjw.size();
+    dist=vector<int>(n,-1); prev=vector<int>(n,-1);
+    priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> pq;  // (distance, node)
+    dist[0]=0; pq.push({0,0});
+    while (!pq.empty()) {
+        auto [d,x]=pq.top(); pq.pop();
+        if (dist[x]!=d) continue;  // ignore old values
+        for (auto [y,w] : adjw[x]) {  // update neighbors
+            int d=dist[x]+w;
+            if (dist[y]==-1 || d<dist[y]) {
+                dist[y]=d; prev[y]=x;
+                pq.push({d,y});
+            }
+        }
+    }
+}
+
 int main(){
     int N, M;
     cin >> N >> M;
@@ -48,7 +66,8 @@ int main(){
     
     
     vector<int> dist, dist2, prev;
-    Dijkstra(dist, prev);
+    //Dijkstra(dist, prev);
+    Dijkstra_PQ(dist, prev);
 
     if (dist[N-1] == -1){
         cout << -1 << endl;
@@ -56,28 +75,31 @@ int main(){
     }
 
     int trenutno = N-1;
-    int min = 100000000;
-    int temp0 = 0;
+    int min = 1e9;
+    pair<int, int> temp0;
     while (prev[trenutno] != -1){
         for (int i = 0; i < (int)adjw[prev[trenutno]].size(); i++){
             if (adjw[prev[trenutno]][i].first == trenutno){
-                x = adjw[prev[trenutno]][i].second;
+                temp0 = adjw[prev[trenutno]][i];
+                //x = adjw[prev[trenutno]][i].second;
                 //cout << "x: " << prev[trenutno] << " y: " << trenutno << " w: " << adjw[prev[trenutno]][i].second << endl;
-                adjw[prev[trenutno]][i].second = 100000000;
-                temp0 = i;
+                //adjw[prev[trenutno]][i].second = 100000000;
+                //temp0 = i;
+                adjw[prev[trenutno]].erase(adjw[prev[trenutno]].begin() + i);
                 break;
             }
         }
         vector<int> temp1, temp2;
-        Dijkstra(temp1, temp2);
+        Dijkstra_PQ(temp1, temp2);
         //cout << "temp1[N-1]: " << temp1[N-1] << endl;
-        if (temp1[N-1] < min){
+        if (temp1[N-1] < min && temp1[N-1] != -1){
             min = temp1[N-1];
         }
-        adjw[prev[trenutno]][temp0].second = x;
+        //adjw[prev[trenutno]][temp0].second = x;
+        adjw[prev[trenutno]].push_back(temp0);
         trenutno = prev[trenutno];
     }
-    if (min == 100000000){
+    if (min == 1e9){
         cout << -1 << endl;
     }
     else{
