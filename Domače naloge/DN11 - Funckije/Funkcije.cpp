@@ -7,109 +7,107 @@ using namespace std;
 // 
 
 int main(){
-    short N;
-    long k, temp = 0, min, temp2 = -1;
+    int N;
+    long k, temp, temp1;
     cin >> N >> k;
-    vector<long> seznam;
+    vector<vector<long>> v(N+1);
     int a, b;
-    float kv = (float)1 / N;
-    if (N == 1){
+    long min = 1e12;
+    long max = 1;
+    long mid;
+
+    int tt = 0;
+
+    for(int i = 1; i <= N; i++){
         cin >> a >> b;
-        a += k-1;
-        double x = log(log2(a));
-        x = exp(x);
-        long y = a * x;
-        cout << y << endl;
-        return 0;
-    }
-    vector<pair<pair<pair<int, int>, int>, long>> meje;
-    for (short i = 1; i <=N; i++){
-        cin >> a >> b;
+        v[i].push_back(a);
+        v[i].push_back(b);
+        v[i].push_back(0);
         float kvocient = (float)i / N;
         double x = log(log2(a)) * kvocient;
         x = exp(x);
-        long y = a * x;
-        meje.push_back(make_pair(make_pair(make_pair(a, b), i), y));
-    }
-    sort(meje.begin(), meje.end(), [](const pair<pair<pair<int, int>, int>, long> &a, const pair<pair<pair<int, int>, int>, long> &b){
-        return a.second < b.second;
-    });
-    min = meje[0].second;
-    long max = 0;
-    for (int i = 0; i < N; i++){
-        temp += meje[i].first.first.second - meje[i].first.first.first + 1;
-        double x = log(log2(meje[i].first.first.second)) * kv * meje[i].first.second;
-        x = exp(x);
-        long t = meje[i].first.first.second * x;
-        if (t > max){
-            max = t;
+        mid = a * x;
+        if (mid < min){
+            min = mid;
         }
-        if (temp >= k){          
+        x = log(log2(b)) * kvocient;
+        x = exp(x);
+        mid = b * x;
+        if (mid > max){
+            max = mid;
+        }
+        v[i].push_back(mid);
+    }
+    temp = 0;
+    temp1 = 0;
+    
+    while (min <= max){
+        temp1 = 0;
+        tt = 0;
+        mid = (min + max) / 2;
+        
+        for (int i = 1; i <= N; i++){
+            float kvocient = (float)i / N;
+            int min1 = v[i][0];
+            int max1 = v[i][1];
+            int mid1;
+            while (max1 > min1){
+                mid1 = (min1 + max1) / 2;
+                double x = log(log2(mid1)) * kvocient;
+                x = exp(x);
+                long y = mid1 * x;
+                if (y < mid){
+                    min1 = mid1 + 1;
+                }
+                else if (y > mid){
+                    max1 = mid1 - 1;
+                }
+                else{
+                    min1 = mid1;
+                    break;
+                }
+            }
+            double x = log(log2(min1)) * kvocient;
+            x = exp(x);
+            long y = min1 * x;
+            if (y > mid || y > v[i][3]){
+                min1--;
+            }else if (y == mid){
+                tt++;
+                temp1--;
+            }
+            if (mid == 5467847135){
+                //cout << y << " " << min1 << " " << v[i][0] << " " << v[i][1] << "-------" << endl;
+            }
+            //cout << y << endl;
+            v[i][2] = min1;
+            temp1 += min1 - v[i][0] + 1;
+
+        }
+        //cout << min << " " << mid << " " << max << " " << temp << " " << temp1 << " " << tt << endl;
+        if (k > temp + temp1 && k <= temp + temp1 + tt){
+            //cout << temp + temp1 << endl;
             break;
         }
-    }
-    //cout << min << " " << max << endl;
-    seznam.resize(max-min+1, 0);
-    temp = 0;
-
-
-
-    for (int i = 0; i < N; i++){
-        int a = meje[i].first.first.first;
-        int b = meje[i].first.first.second;
-        int j = meje[i].first.second;
-        seznam[meje[i].second-min] += 1;
-        float kvocient = kv * j;
-        long y;
-        if (temp2 == -1){
-            for (int j = a+1; j <= b; j++){
-                double x = pow(log2(j), kvocient);
-                y = j * x;
-                //cout << y << " " << temp << endl;
-                seznam[y-min] += 1;
-            }
-        }else{
-            for (int j = a+1; j <= b; j++){
-                double x = pow(log2(j), kvocient);
-                y = j * x;
-                if (y <= temp2){
-                    seznam[y-min] += 1;
-                }else{
-                    break;
-                }
+        else if (k <= temp+ temp1){
+            max = mid - 1;
+            for(int i = 1; i <= N; i++){
+                v[i][1] = v[i][2];
             }
         }
-        
-        temp += b-a+1;
-        if (i == N-1){
-            y = 0;
-            for (int j = 0; j < (int)seznam.size(); j++){
-                y += seznam[j];
-                if (y >= k){
-                    temp2 = j+min;
-                    break;
+        else{
+            min = mid + 1;
+            temp += temp1 + tt;
+            for(int i = 1; i <= N; i++){
+                //v[i][3] += v[i][2] - v[i][0];
+                if (v[i][0] <= v[i][2]){
+                    v[i][0] = v[i][2] + 1;
                 }
-            }
-            cout << temp2 << endl;
-            return 0;
-        }
-        if (temp >= k){
-            y = 0;
-            //cout << "temp: " << temp << endl;
-            for (int j = 0; j < (int)seznam.size(); j++){
-                y += seznam[j];
-                //cout << min + j << " " << y << endl;
-                if (y >= k){
-                    temp2 = j+min;
-                    break;
-                }
-            }
-            if (temp2 <= meje[i+1].second){
-                cout << temp2 << endl;
-                return 0;
             }
         }
     }
+
+    cout << mid << endl;
     
     
     return 0;
