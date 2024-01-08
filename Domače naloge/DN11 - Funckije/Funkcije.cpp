@@ -8,103 +8,69 @@ using namespace std;
 
 int main(){
     int N;
-    long k, temp, temp1;
+    long k, sum, isti;
     cin >> N >> k;
-    vector<vector<long>> v(N+1);
-    int a, b;
-    long min = 1e12;
-    long max = 1;
+    vector<vector<int>> v(N+1);
+    long a, b;
+    long min = 0;
+    long max = 1e15;
     long mid;
-
-    int tt = 0;
 
     for(int i = 1; i <= N; i++){
         cin >> a >> b;
         v[i].push_back(a);
         v[i].push_back(b);
-        v[i].push_back(0);
-        float kvocient = (float)i / N;
-        double x = log(log2(a)) * kvocient;
-        x = exp(x);
-        mid = a * x;
-        if (mid < min){
-            min = mid;
-        }
-        x = log(log2(b)) * kvocient;
-        x = exp(x);
-        mid = b * x;
-        if (mid > max){
-            max = mid;
-        }
-        v[i].push_back(mid);
     }
-    temp = 0;
-    temp1 = 0;
+    mid = (min + max) / 2;
     
     while (min <= max){
-        temp1 = 0;
-        tt = 0;
-        mid = (min + max) / 2;
-        
+        sum = 0;
+        isti = 0;
         for (int i = 1; i <= N; i++){
             float kvocient = (float)i / N;
-            int min1 = v[i][0];
-            int max1 = v[i][1];
-            int mid1;
-            while (max1 > min1){
+            long min1 = v[i][0];
+            long max1 = v[i][1];
+            long mid1;
+            while (min1 < max1){
                 mid1 = (min1 + max1) / 2;
-                double x = log(log2(mid1)) * kvocient;
-                x = exp(x);
+                double x = log2(mid1);
+                x = pow(x, kvocient);
                 long y = mid1 * x;
                 if (y < mid){
                     min1 = mid1 + 1;
                 }
                 else if (y > mid){
-                    max1 = mid1 - 1;
+                    max1 = mid1;
                 }
                 else{
-                    min1 = mid1;
+                    max1 = mid1;
                     break;
                 }
             }
-            double x = log(log2(min1)) * kvocient;
-            x = exp(x);
-            long y = min1 * x;
-            if (y > mid || y > v[i][3]){
-                min1--;
+            
+            double x = log2(max1);
+            x = pow(x, kvocient);
+            long y = max1 * x;
+            if (y < mid){
+                max1++;
             }else if (y == mid){
-                tt++;
-                temp1--;
+                isti++;
             }
-            if (mid == 5467847135){
-                //cout << y << " " << min1 << " " << v[i][0] << " " << v[i][1] << "-------" << endl;
-            }
-            //cout << y << endl;
-            v[i][2] = min1;
-            temp1 += min1 - v[i][0] + 1;
+            sum += max1 - v[i][0];
+            
 
         }
-        //cout << min << " " << mid << " " << max << " " << temp << " " << temp1 << " " << tt << endl;
-        if (k > temp + temp1 && k <= temp + temp1 + tt){
-            //cout << temp + temp1 << endl;
+        //cout << min << " " << mid << " " << max << " " << " " << sum << " " << isti << endl;
+        if (k > sum && k <= sum + isti){
             break;
         }
-        else if (k <= temp+ temp1){
-            max = mid - 1;
-            for(int i = 1; i <= N; i++){
-                v[i][1] = v[i][2];
-            }
+        else if (k <= sum){
+            max = mid;
         }
         else{
             min = mid + 1;
-            temp += temp1 + tt;
-            for(int i = 1; i <= N; i++){
-                //v[i][3] += v[i][2] - v[i][0];
-                if (v[i][0] <= v[i][2]){
-                    v[i][0] = v[i][2] + 1;
-                }
-            }
         }
+        mid = (min + max) / 2;
     }
 
     cout << mid << endl;
