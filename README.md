@@ -1,6 +1,6 @@
 # Algoritmi in podatkovne strukture 1
 
-Delo pri predmetu Algoritmi in podatkovne strukture 1 (C++) UNI, Fakulteta za računalništvo in informatiko, Univerza v Ljubljani, 2022/23:
+Delo pri predmetu Algoritmi in podatkovne strukture 1 (C++) UNI, Fakulteta za računalništvo in informatiko, Univerza v Ljubljani, 2023/24:
 
 - `Marjan.sh` - bash program za avtomatsko testiranje C++ programov,
 - rešene domače naloge,
