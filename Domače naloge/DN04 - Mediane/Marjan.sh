@@ -1,5 +1,5 @@
 #####################################
-			VERSION=1.6
+			VERSION=1.7.2
 #####################################
 
 #./Marjan.sh {ime_datoteke} {dodatni_parametri}
@@ -20,19 +20,36 @@ reset='\e[0m'
 # Preveri, če je podanih dovolj argumentov (ime programa)
 if [ "$#" -eq 0 ]; then
   echo "Uporaba: $0 <ime_programa> <dodatni_parametri>"
-  echo "Dodatni parametri: T={} - timeoutlimit, M={} - measuretime, R={} - range of tests (1- || -4 || 2-5)"
+  echo "Dodatni parametri: T={} - timeoutlimit, M={} - measuretime (0 - NE, 1 - DA), R={} - range of tests (1- || -4 || 2-5)"
   exit 1
 fi
 
 # Argumenti
 program="$1"
 shift 1
+remove=0
+
+if [ ! -f "${program}" ]; then
+echo "Datoteka ${program} in ${program}.cpp ne obstaja."
+exit 1
+else
+remove=0
+# če je datoteka s končnico .cpp
+if [[ "${program}" == *".cpp" ]]; then
+	program="${program%.*}"
+	g++ "${program}.cpp" -o ${program} -std=c++20 -pedantic -Wall
+	remove=1
+	fi
+fi
+
+
+
 
 # Čas za timeout
-to=2.0
+to=2.5
 
 # Izpiši čas
-M_time=0
+M_time=1
 total_time=0
 
 # Testno območje
@@ -87,7 +104,8 @@ echo -e "${white}Measure time = ${M_time}${reset}"
 echo -e "${white}Test range = ${range}${reset}"
 echo ""
 
-g++ "${program}.cpp" -o ${program} -std=c++20 -pedantic -Wall
+
+
 
 # Pravilni testi
 correct_tests=0
@@ -145,7 +163,9 @@ izpisi_rezultate() {
 	fi
 	
 	echo -e ${reset}
-	rm "${program}"
+	if [ $remove -eq 1 ]; then
+	  rm "${program}"
+	fi
 	exit 1
 }
 
@@ -203,6 +223,12 @@ testing() {
 	  # Preveri, ali je program presegel časovni limit
 	  if [ $rezultat -eq 124 ]; then
 		echo -e "Test $input_number: ${purple}Timeout${reset}${measuredTimeString}"
+		rm $output_file_temp
+		if [ -f $output_file_rez ];then
+		  rezultat=-1
+		else
+		   done_tests=$((done_tests + 1))
+		fi
 	  else
 		if [ -f $output_file_rez ]; then
 			# Primerjaj izhod programa s pričakovanim izhodom

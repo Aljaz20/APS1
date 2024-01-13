@@ -1,0 +1,62 @@
+Dana sta niza S
+ in T
+, sestavljena iz velikih tiskanih črk angleške abecede. Iščemo najcenejše zaporedje operacij, ki niz S
+ pretvorijo v niz T
+, pri čemer lahko vstavimo nov znak za ceno x
+, izbrišemo znak za ceno y
+ ali ga zamenjamo z drugim znakom za ceno z
+. Napišite program, ki bo izračunal ceno najcenejše pretvorbe in primer pretvorbe, kjer so označeni novi, izbrisani in zamenjani znaki.
+
+Omejitve podatkov
+
+1≤|S|,|T|≤1000
+0≤x,y,z≤1000
+Vhodni in izhodni podatki
+
+V prvi vrstici so podana cela števila x
+, y
+ in z
+. Druga vrstica vsebuje začetni niz S
+, tretja pa ciljni niz T
+.
+
+V prvi vrstici izpišite ceno najcenejše pretvorbe niza S
+ v niz T
+. V drugi vrstici izpišite opis take najcenejše pretvorbe. Obstaja lahko več možnih najcenejših pretvorb - v tem primeru izpišite katerokoli izmed njih. Opis pretvorbe je sestavljen iz opisov operacij na posameznih znakih:
+
++X predstavlja vstavljanje znaka X,
+-X predstavlja izbris znaka X,
+X>Y predstavlja zamenjavo znaka X z znakom Y,
+X predstavlja nespremenjen znak .
+Konkatenacija znakov, ki so nespremenjeni, odstranjeni ali izhodišče spremembe, morajo formirati izhodiščni niz S
+. Konkatenacija znakov, ki so nespremenjeni, vstavljeni ali rezultat spremembe, morajo formirati ciljni niz T
+. Skupna cena operacij se mora ujemati z izpisano najmanjšo ceno.
+
+Primer 1
+
+Vhod:
+
+1 1 2
+AABA
+BABA
+Primer izhoda:
+
+2
++B A -A B A
+Niz "AABA" ima za dane cene operacij 4 možne najcenejše transformacije v niz "BABA":
+
+A>B A B A
+-A +B A B A
++B -A A B A
++B A -A B A
+Primer 2
+
+Vhod:
+
+2 3 4
+BACAABBCCA
+CABACACB
+Primer izhoda:
+
+19
+-B -A C -A A B B>A C +A C A>B

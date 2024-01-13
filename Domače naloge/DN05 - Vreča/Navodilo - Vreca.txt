@@ -1,0 +1,44 @@
+Implementirajte vrečo (bag/multiset), ki bo hranila cela števila in omogočala dodajanje elementov, odstranjevanje elementov in poizvedbe o trenutnem številu elementov v vreči, ki imajo vrednost z danega intervala [ai,bi]
+, torej vključno z obema mejama. Če je neko število večkrat dodano v vrečo, mora vreča hraniti več enakih števil. Ko pa želimo neko število odstaniti iz vreče, v primeru več enakih elementov odstranimo zgolj enega. Če števila ni v vreči, odstranjevanje ne spremeni vsebine vreče.
+
+Omejitve podatkov:
+
+1≤N≤106
+1≤xi≤106
+ (nabor možnih vrednosti je dokaj majhen)
+Vhodni in izhodni podatki:
+
+V prvi vrstici je najprej podano število operacij N
+. V naslednjih N
+ vrsticah so pari števil si,xi
+, kjer si<0
+ pomeni, da število xi
+ dodamo v vrečo, si=0
+ pomeni, da število xi
+ odstranimo iz vreče in si>0
+, da naredimo poizvedbo na intervalu [ai,bi]
+, kjer je ai=min(si,xi)
+ in bi=max(si,xi)
+.
+
+Na izhodu izpišemo število, ki ga dobimo, če seštejemo rezultate poizvedb.
+
+Primer vhoda:
+
+12
+-1 2
+-1 12
+-1 4
+-1 2
+1 3
+0 2
+1 2
+4 2
+0 53
+0 12
+900 9
+1 100
+Pravilen izhod:
+
+7
+Odgovori na poizvedbe so po vrsti 2, 1, 2, 0, in 2.

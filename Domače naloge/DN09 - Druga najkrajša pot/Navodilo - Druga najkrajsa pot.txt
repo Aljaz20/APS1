@@ -1,0 +1,59 @@
+V enostavnem neusmerjenem uteženem grafu z N
+ vozlišči in M
+ povezavami izračunaj dolžino druge najkrajše poti med vozliščema 0
+ in N−1
+. Dolžina poti je vsota dolžin vseh povezav na poti. Dovoljene so le poti brez ponavljanja vozlišč. Če bi vse take poti uredili po njihovi dolžini od krajših proti daljšim, nas torej zanima dolžina druge v tem vrstnem redu.
+
+Omejitve podatkov:
+
+1≤N≤2000
+1≤M≤104
+1≤
+ dolžina povezave ≤104
+Vhodni in izhodni podatki:
+
+Prva vrstica vsebuje število vozlišč N
+ (oštevilčimo jih z zaporednimi števili od 0
+ do N−1
+) in število povezav M
+. Sledi M
+ trojic oblike i
+ j
+ k
+, kjer sta i
+ in j
+ vozlišči, k
+ pa dolžina povezave med njima.
+
+Na izhodu izpišite iskano dolžino druge najkrajše poti. V primeru, da je najkrajših poti več, je iskana vrednost kar enaka dolžini najkrajše poti. Če vozlišči 0
+ in N−1
+ nista povezani ali med njima obstaja natanko ena pot, izpišite -1.
+
+Primeri
+
+Vhod 1:
+
+5 7
+0 1 1
+0 2 3
+0 3 4
+1 2 3
+1 3 4
+2 3 2
+2 4 1
+Izhod 1:
+
+5
+Vhod 2:
+
+7 7
+0 1 1
+0 2 1
+1 5 1
+2 3 1
+0 5 1
+4 2 1
+3 6 1
+Izhod 2:
+
+-1

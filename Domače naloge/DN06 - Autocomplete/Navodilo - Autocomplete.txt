@@ -1,0 +1,51 @@
+Implementirajte funkcionalnost, ki se bo uporabljala v urejevalniku besedila kot autocomplete funkcija. Podan je slovar besed z njihovo pomembnostjo, ki odraža pogostost uporabe. Napišite program, ki bo prebral slovar in nato učinkovito odgovarjal na poizvedbe o najpomembnejši besedi, ki se začne s podano predpono (upoštevamo tudi besedo, ki se povsem ujema s predpono). Slovar vsebuje same različne besede. Prav tako so pomembnosti besed sama različna cela števila.
+
+Omejitve podatkov:
+
+1≤N≤106
+ in 1≤M≤106
+1≤|Si|≤105
+ in 1≤|Ti|≤105
+∑|Si|≤106
+ in ∑|Tj|≤106
+1≤Pi≤109
+Vhodni in izhodni podatki:
+
+Prva vrstica vsebuje število besed N
+ v slovarju, ki so nato podane v naslednjih N
+ vrsticah. V i
+-ti (i=1..N
+) sledeči vrstici je poleg i
+-te besede Si
+ še s presledkom ločena pomembnost te besede Pi
+. Besede so poljubni nizi sestavljeni iz malih črk angleške abecede in niso omejene na dejanske angleške ali slovenske besede. Sledi število poizvedb M
+, ki so podane v naslednjih vrsticah z enim nizom Tj
+.
+
+Za vsako poizvedbo izpišite v svoji vrstici zaporedno številko i
+ tiste besede, ki se začne z nizom Tj
+ in ima med vsemi takimi besedami največjo pomembnost. V primerih, ko take besede v slovarju sploh ni, izpišite 0.
+
+Zaradi velike količine vhodnih in izhodnih podatkov predlagamo, da odgovore na vsako poizvedbo shranite v seznam in jih na koncu izpišete vse naenkrat. Izmenjava pisanja in branja namreč povzroči splakovanje izhoda, tako kot uporaba endl.
+
+Primer vhoda:
+
+7
+algoritem 20
+drevo 1
+zaba 3
+zebra 10
+algebra 4
+alge 8
+program 5
+4
+alge
+x
+a
+zeb
+Pravilen izhod:
+
+6
+0
+1
+4

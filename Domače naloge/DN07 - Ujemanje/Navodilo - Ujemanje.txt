@@ -1,0 +1,43 @@
+Podan je vzorec S
+, ki poleg črk vsebuje še posebna znaka ? in *. Poleg tega je podan še niz T
+. Napišite program, ki ugotovi, ali se niz T
+ kje ujema s podanim vzorcem S
+. Posebni znak * lahko v ujemanju zavzame poljubno zaporedje nič ali več znakov. Posebni znak ? pa zavzame natanko en poljuben znak.
+
+Nizi bodo sestavljeni iz malih črk angleške abecede, znaka _ in posebnih znakov ? in *.
+
+Omejitve podatkov:
+
+N≤50
+1≤|S|,|T|≤1000
+Vhodni in izhodni podatki:
+
+Vhodni podatki imajo sledečo strukturo. Prva vrstica vsebuje število N
+, ki določa število parov S
+, T
+. V naslednjih N
+ vrsticah so zapisani pari S
+, T
+, ki so ločeni s presledkom.
+
+Za vsak par S
+, T
+ izpišite v svoji vrstici začetni in končni indeks prvega (z najmanjšim indeksom začetka) nepraznega podniza v T
+, ki se ujema z vzorcem S
+. Če je takih podnizov več, izpišite konec najkrajšega takšnega podniza. Če ujemanja ni, izpišite -1.
+
+Primer vhoda:
+
+5
+is?ani_vz**or*?c?ne**?vs*je?znaka??? oksimoron_je_da_iskani_vzorec_ne_vsebuje_znaka_abc
+???*??* asdf
+* dfweqr_adsfadsf_sfdgsgd_fsgsdgs_fgscgdg
+lal*enelc*uc* luysznnmqlaldiinlsenelcqudmwvqholjaijlsucygcnn_gol
+*p?*?*_zvez*i??* tudi_to_je_del_resitve__poisci_zvezdico_to_pa_ne
+Pravilen izhod:
+
+16 48
+-1
+0 0
+9 40
+0 38

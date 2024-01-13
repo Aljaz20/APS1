@@ -1,0 +1,51 @@
+Vzdolž ravne ulice dolžine M
+ metrov je nameščenih N
+ uličnih luči. Nekatere luči so se v preteklosti pokvarile in so jih morali zamenjati. Zato luči niso enakomerno razporejene in nimajo enake moči osvetlitve. Luči so oštevilčene s celimi števili od 1
+ do N
+ in za i
+-to luč poznamo njeno lokacijo xi
+ (razdalja v nekih dolžinskih enotah od začetka ulice) in razdaljo di
+ (v istih enotah), ki jo ta luč osvetljuje na vsako stran. Luč i
+ torej osvetljuje interval [xi−di,xi+di]
+. Lahko se zgodi, da je več luči nameščenih na istem mestu. Napišite program, ki bo iz podatkov o ulici in lučeh na njej izračunal, koliko dolžinskih enot ulice je neosvetljene.
+
+Omejitve podatkov:
+
+1≤M≤109
+ (pri merjenju smo lahko zelo natančni in uporabljamo res majhne dolžinske enote)
+0≤N≤10000
+ (luči je lahko kar precej)
+0≤xi≤M
+ (luči bodo locirane nekje vzdolž ulice)
+0≤di≤109
+ (moč luči je lahko tudi zelo velika)
+Vhodni in izhodni podatki:
+
+V prvi vrstici je podana dolžina ulice M
+, v drugi vrstici pa število luči N
+. Sledi N
+ vrstic, kjer i
+-ta vrstica opisuje i
+-to luč z njeno lokacijo xi
+ in močjo di
+. Izpišite eno samo vrstico s skupno dolžino neosvetljene ulice.
+
+Primer vhoda:
+
+30
+7
+10 2
+23 2
+14 1
+4 1
+14 4
+11 5
+1 2
+Pravilen izhod:
+
+9
+Namigi za prvič:
+
+Bodite natančni pri posebnih primerih, npr. ko sveti luč čez rob ulice, ali pri di=0
+ (pokvarjena luč), ali N=0
+ (ulica brez luči). Ocenite in tudi preverite učinkovitost svoje rešitve pri največji velikosti vhodnih podatkov, da ne bo presenečenj pri ocenjevanju.

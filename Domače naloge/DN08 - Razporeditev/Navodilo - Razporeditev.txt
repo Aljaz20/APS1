@@ -1,0 +1,66 @@
+V skupini je N
+ zelo klepetavih otrok. Podanih je M
+ parov, ki med seboj radi klepetajo. Posamezen otrok lahko rad klepeta z več kot enim drugim otrokom. Napišite program, ki bo otroke razdelil v dve skupini tako, da noben par otrok, ki rad klepeta, ne bo v isti skupini, če je to mogoče.
+
+Omejitve podatkov:
+
+1≤N≤105
+1≤M≤106
+Vhodni in izhodni podatki:
+
+Prva vrstica vsebuje število otrok N
+ (oštevilčimo jih z zaporednimi števili od 1 do N
+) in število klepetavih parov M
+. Sledi M
+ parov oblike i
+ j
+, kjer i≠j
+ in 1≤i,j≤N
+, ki pomeni, da otroka i
+ in j
+ med sabo rada klepetata. Vsak par je naveden le enkrat.
+
+Izhod naj bo zaporedje N
+ vrstic, kjer je v i
+-ti vrstici skupina si
+ (1 ali 2), ki ji pripada otrok xi
+. Med vsemi veljavnimi rešitvami naj program izpiše leksikografsko najmanjšo (to je tista veljavna rešitev, v kateri ima prvi otrok čim manjšo številko skupine, če je še vedno več enakovrednih, izberemo tisto, kjer ima drugi otrok čim manjšo številko, itd.) Če razdelitev v skupine ni mogoča, naj se izpiše ena sama vrstica s številom -1.
+
+Primer 1
+
+Vhod:
+
+8 7
+1 2
+1 4
+2 3
+4 3
+1 5
+1 6
+7 8
+Izhod:
+
+1
+2
+1
+2
+2
+2
+1
+2
+Primer 2
+
+Vhod:
+
+8 8
+1 2
+1 4
+2 3
+4 3
+2 5
+1 5
+1 6
+7 8
+Izhod:
+
+-1

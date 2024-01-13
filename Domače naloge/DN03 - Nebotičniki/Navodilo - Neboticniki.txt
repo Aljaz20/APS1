@@ -1,0 +1,30 @@
+V ravni ulici je N
+ nebotičnikov različnih velikosti označenimi s hi
+. Z vrha vsakega nebotičnika lahko vidimo čez vse nebotičnike, ki so nižje ali enake velikosti, dokler ne naletimo na kakšnega večjega. Tako lahko za vsak nebotičnik izračunamo število nebotičnikov ni
+, preko katerih lahko vidimo. Zanima nas vsota teh števil Z=∑Ni=1ni
+.
+
+Omejitve podatkov:
+
+1≤N≤106
+0≤hi≤109
+Vhodni in izhodni podatki:
+
+V prvi vrstici je podano število nebotičnikov N
+. Sledi N
+ vrstic, kjer je v i
+-ti vrstici zapisana velikost nebotičnika hi
+, kot si sledijo po vrsti na ulici. Na izhodu izpišemo iskano število Z
+ - vsoto števil nebotičnikov, preko katerih lahko vidimo s posameznega nebotičnika.
+
+Primer vhoda:
+
+5
+7
+4
+2
+4
+5
+Pravilen izhod:
+
+11

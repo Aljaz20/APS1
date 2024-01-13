@@ -1,0 +1,46 @@
+Podanih je N
+ seznamov, kjer je i
+-ti seznam (i=1…N
+) definiran s parom celih števil ai
+ in bi
+, ki predstavljata seznam vrednosti fi(ai),fi(ai+1),...,fi(bi)
+. Vsak seznam vsebuje vrednosti malo drugačne naraščajoče funkcije. Družina funkcij fi(x)
+ je definirana kot fi(x)=⌊x⋅(log2x)i/N⌋
+. Izračunaj k
+-to vrednost (indeksirano od 1 naprej), če bi vse sezname združili v enega in ga uredili naraščajoče.
+
+Omejitve podatkov
+
+1≤N≤1000
+1≤ai≤bi≤109
+1≤k≤∑Ni=1(bi−ai+1)
+Vhodni in izhodni podatki
+
+V prvi vrstici sta podani števili N
+ in k
+. Nato sledi N
+ vrstic s pari celih števil ai
+ in bi
+.
+
+Izpišite iskano k
+-to število po velikosti. Bodite pozorni na velikosti števil.
+
+Primer
+
+Vhod:
+
+4 42
+440 460
+999999990 1000000000
+160 180
+100 110
+Izhod:
+
+784
+Posamezni seznami vsebujejo naslednja števila:
+
+[757, 759, 761, 762, 764, 766, 768, 769, 771, 773, 775, 777, 778, 780, 782, 784, 786, 787, 789, 791, 793]
+[5467847130, 5467847136, 5467847141, 5467847147, 5467847152, 5467847158, 5467847164, 5467847169, 5467847175, 5467847180, 5467847186]
+[712, 717, 722, 727, 732, 737, 742, 748, 753, 758, 763, 768, 773, 778, 784, 789, 794, 799, 804, 809, 815]
+[664, 672, 680, 688, 696, 704, 713, 721, 729, 737, 745]

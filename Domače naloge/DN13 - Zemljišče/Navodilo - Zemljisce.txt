@@ -1,0 +1,37 @@
+Jožef R. je kmet, ki ima nadvse rad zemljo. Po vojni je dobil eno njivo in eno senožet, ki sta pravokotne oblike. Jožef po njiju rad taca bosonog, zato je zanj pomembno, kako daleč bo po najkrajši poti med njima moral hoditi po tuji zemlji, ki je negostoljubna in ga kar reže v pete. Če so ga opetnajstili in se senožet in njiva prekrivata, nič zato - mu vsaj daleč hoditi ne bo treba. Svet, na katerem živi Jožef, je takšen kot naš - ploščat. V njem ima vsako mesto svoj "naslov" oblike (x, y). Točka (0, 0) je še vedno v Rimu, razdalje merimo v klaftrah, vemo pa, da Jožefova zemlja nikdar ne bo več kot 10000 klafter stran od Rima.
+
+Napišite program, ki na vhodu sprejme koordinate nasprotnih oglišč pravokotnikov (x1
+, y1
+ in x2
+, y2
+ za njivo, x3
+, y3
+ in x4
+, y4
+ za senožet) Jožefove zemlje in izpiše najmanjšo razdaljo, ki jo bo moral Jožef prehoditi po tuji zemlji, da bo prišel z njive na senožet ali obratno. Izpisana razdalja naj bo v pednjih, zaokroženo navzgor. Ena klaftra je osem pednjev.
+
+Omejitve podatkov
+
+1≤T≤1000
+−10000≤x1,y1,x2,y2,x3,y3,x4,y4≤10000
+Vhodni in izhodni podatki
+
+Prva vrstica vhoda vsebuje število primerov T
+. Vsaka naslednja vrstica opisuje en primer s presledki ločenimi celimi števili x1,y1,x2,y2,x3,y3,x4,y4
+. Za vsak primer izpišite eno celo število - navzgor zaokroženo razdaljo med njivo in senožetjo v pednjih.
+
+Primer
+
+Vhod:
+
+4
+1 1 23 22 26 26 33 33
+1 1 23 22 20 30 25 -2
+1 1 23 22 -1 10 -5 11
+0 0 -1 -1 1 1 23 22
+Izhod:
+
+40
+0
+16
+12

@@ -1,0 +1,44 @@
+Na statističnem uredu prejmejo veliko število meritev. Ne vemo česa, ampak na srečo ni važno. Stremijo k čim večji ažurnosti, zato po vsaki prejeti meritvi izračunajo statistične vrednosti kot so povprečje, minimum, maksimum in mediana (srednja vrednost). Predvsem slednja jim dela težave. Napiši program, ki bo po vrsti prebiral meritve in po vsaki prebrani meritvi izpisal mediano vseh do sedaj prebranih vrednosti.
+
+Mediana je tista vrednost, ki podatke razdeli v dva enako velika dela (kjer je en del manjši, drug pa večji) oz. se v urejenem zaporedju nahaja na sredini. Da ne bo dvoumnosti pri zaporedjih lihih in sodih dolžin, definirajmo, da se mediana nahaja na indeksu ⌊(n−1)/2⌋
+ v naraščajoče urejenem zaporedju dolžine n
+, kjer so elementi oštevilčeni od 0
+ do n−1
+.
+
+Omejitve podatkov:
+
+1≤N≤105
+0≤xi≤109
+Vhodni in izhodni podatki:
+
+V prvi vrstici je podano število meritev N
+. V naslednjih N
+ vrsticah so po vrsti podane meritve xi
+. Po vsaki prebrani meritvi izpišite v svoji vrstici mediano do sedaj opravljenih meritev.
+
+Primer vhoda:
+
+10
+6
+3
+8
+1
+0
+1
+2
+0
+8
+9
+Pravilen izhod:
+
+6
+3
+6
+3
+3
+1
+2
+1
+2
+2

@@ -1,0 +1,49 @@
+Podan je zemljevid, na katerem je pokrajina razdeljena na mrežo višine V
+ in širine S
+. Za vsako celico zemljevida je podana njena izmerjena nadmorska višina Hi,j≥0
+. Hidrologe zanima, kaj se bo zgodilo s pokrajino, če pride do poplav in se gladina vode dvigne do nadmorske višine P
+. Vse celice, ki so višje od gladine vode (Hi,j>P
+), so nepoplavljene (višina Hi,j=0
+ pomeni, da je celica vedno pod vodo). Nepoplavljene celice pa formirajo otoke. Otoki so množice nepoplavljenih celic, ki so med seboj (posredno) povezane preko skupnih stranic. Napiši program, ki bo za vse možne višine vode izračunal število otokov.
+
+Omejitve podatkov
+
+1≤V,S
+V⋅S≤105
+0≤Hi,j≤105
+Vhodni in izhodni podatki
+
+V prvi vrstici sta podani višina V
+ in širina S
+ zemljevida. Sledečih V
+ vrstic vsebuje S
+ s presledkom ločenih celih števil, ki predstavljajo izmerjene nadmorske višine. V i
+-ti vrstici je j
+-to število izmerjena višina Hi,j
+.
+
+Naj bo P=maxHi,j
+ največja podana nadmorska višina. Izpišite P+1
+ vrstic, ki naj po vrsti vsebujejo število otokov pri višini vode 0,1,...,P
+.
+
+Primer
+
+Vhod:
+
+4 5
+7 2 1 0 7
+5 8 4 0 2
+0 3 1 1 6
+2 6 5 0 5
+Izhod:
+
+1
+2
+3
+4
+4
+5
+3
+1
+0
